@@ -4,6 +4,8 @@ import com.kag.dao.LedgerDao;
 import com.kag.dao.LedgerDaoImpl;
 import com.kag.entity.Ledger;
 
+import java.util.List;
+
 /**
  * @Description: 账本服务层
  * @Author: 陈子康
@@ -15,5 +17,9 @@ public class LedgerService {
 
     public void addLedgerService(Ledger ledger) {
         ledgerDao.addLedger(ledger);
+    }
+
+    public List<Ledger> queryLedgerService() {
+        return ledgerDao.queryLedger();
     }
 }

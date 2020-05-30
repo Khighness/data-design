@@ -17,7 +17,20 @@ public class FactoryService {
         factoryDao.addFactory(factory);
     }
 
+    public void updateFactoryService(int fid, Factory factory) {
+        factoryDao.updateFactory(fid, factory);
+    }
+
     public Factory queryFactoryByIdService(int factoryId) {
         return factoryDao.queryFactoryById(factoryId);
     }
+
+    public Factory queryFactoryBuyNameService(String factoryName) {
+        return factoryDao.queryFactoryByName(factoryName);
+    }
+
+    public void deleteFactoryService(int factoryId) {
+        factoryDao.deleteFactory(factoryId);
+    }
+
 }

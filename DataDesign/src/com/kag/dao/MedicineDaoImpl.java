@@ -363,9 +363,4 @@ public class MedicineDaoImpl implements MedicineDao {
         }
     }
 
-//    public static void main(String[] args) {
-//        MedicineDao medicineDao = new MedicineDaoImpl();
-//        medicineDao.addMedicineDetailInfo(new Medicine(20200003, "K", "K", "K", "K", "K", "K", "K", "K"));
-//    }
-
 }

@@ -17,7 +17,19 @@ public class ClientService {
         clientDao.addClient(client);
     }
 
+    public void updateClientService(int clientId, Client client) {
+        clientDao.updateClientById(clientId, client);
+    }
+
     public Client queryClientByIdService(int clientId) {
         return clientDao.queryClientById(clientId);
+    }
+
+    public Client queryClientByNameService(String clientName) {
+        return clientDao.queryClientByName(clientName);
+    }
+
+    public void deleteClientService(int clientId) {
+        clientDao.deleteClient(clientId);
     }
 }

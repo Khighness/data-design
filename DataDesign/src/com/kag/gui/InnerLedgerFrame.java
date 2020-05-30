@@ -1,65 +1,65 @@
 package com.kag.gui;
 
+import com.kag.entity.Ledger;
 import com.kag.entity.Stock;
+import com.kag.service.LedgerService;
 import com.kag.service.StockService;
+import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import java.awt.*;
-import java.awt.peer.FontPeer;
 import java.util.List;
 
 /**
- * @Description: 内部库存查询界面(查询所有)
+ * @Description: 内部账本查询界面
  * @Author: 陈子康
- * @Date: 2020/5/26
+ * @Date: 2020/5/30
  */
-public class InnerSearchAllStockFrame extends JInternalFrame {
+public class InnerLedgerFrame extends JInternalFrame {
 
-    public InnerSearchAllStockFrame() {
+    public InnerLedgerFrame() {
         setVisible(true);
         setClosable(true);
         setIconifiable(true);
         setResizable(true);
-        setTitle("查询所有药品库存");
-        setBounds(700, 100, 400, 200);
-        setFrameIcon(new ImageIcon("img/StockLogo.png"));
+        setTitle("账本记录");
+        setBounds(300, 100, 600, 300);
+        setFrameIcon(new ImageIcon("img/LedgerLogo.png"));
 
-        StockService stockService = new StockService();
-        List<Stock> stockList = stockService.queryStockService();
-        Object[] columnTitle = {"药品编号", "库存数量"};
-        Object[][] tableData = new Object[stockList.size()][2];
-        for (int i = 0; i < stockList.size(); i++) {
-            tableData[i][0] = stockList.get(i).getMid();
-            tableData[i][1] = stockList.get(i).getStockQuantity();
+        LedgerService ledgerService = new LedgerService();
+        List<Ledger> ledgerList = ledgerService.queryLedgerService();
+        Object[] columnTitle = {"流水号", "类型", "交易金额/元"};
+        Object[][] tableData = new Object[ledgerList.size()][3];
+        for (int i = 0; i < ledgerList.size(); i++) {
+            tableData[i][0] = ledgerList.get(i).getRecordId();
+            switch (ledgerList.get(i).getType()) {
+                case 1: tableData[i][1] = "进货"; break;
+                case 2: tableData[i][1] = "批发"; break;
+                case 3: tableData[i][1] = "零售"; break;
+                default: break;
+            }
+           tableData[i][2] = ledgerList.get(i).getTransactionAmount();
         }
 
-        Font font = new Font("华文楷体", Font.PLAIN, 20);
+        Font Font_Head = new Font("微软雅黑", Font.BOLD, 18);
+        Font Font_Table = new Font("华文楷体", Font.PLAIN, 20);
         JTable table = new JTable(tableData, columnTitle);
-        table.setFont(font);
+        table.getTableHeader().setFont(Font_Head);
+        table.setFont(Font_Table);
         table.setEnabled(false);
-        table.getColumnModel().getColumn(0).setPreferredWidth(200);
-        table.getColumnModel().getColumn(1).setPreferredWidth(200);
-        setTableHeaderColor(table, 0, new Color(200, 200, 169));
-        setTableHeaderColor(table, 1, new Color(200, 200, 169));
+        table.setRowHeight(30);
+        table.getColumnModel().getColumn(0).setPreferredWidth(300);
+        table.getColumnModel().getColumn(1).setPreferredWidth(100);
+        table.getColumnModel().getColumn(2).setPreferredWidth(200);
         JScrollPane scrollPane = new JScrollPane(table, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         add(scrollPane);
-
-        DefaultTableCellRenderer ter = new DefaultTableCellRenderer()// 设置表格间隔色
-        {
-            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-                // table.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
-                if (row % 2 == 0)
-                    setBackground(Color.WHITE);
-                else if (row % 2 == 1)
-                    setBackground(new Color(174, 221, 129));
-                return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-            }
-        };
+        DefaultTableCellHeaderRenderer hr = new DefaultTableCellHeaderRenderer();
+        hr.setHorizontalTextPosition(JLabel.CENTER);
+        DefaultTableCellRenderer ter = new DefaultTableCellRenderer();
         ter.setHorizontalAlignment(JLabel.CENTER);
         table.setDefaultRenderer(Object.class, ter);
-
     }
 
     public static void setTableHeaderColor(JTable table, int columnIndex, Color c) {
@@ -80,4 +80,5 @@ public class InnerSearchAllStockFrame extends JInternalFrame {
         cellRenderer.setBackground(c);
         column.setHeaderRenderer(cellRenderer);
     }
+
 }

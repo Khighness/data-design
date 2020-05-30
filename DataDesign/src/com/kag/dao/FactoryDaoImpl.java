@@ -52,14 +52,14 @@ public class FactoryDaoImpl implements FactoryDao {
         Connection connection = MysqlUtil.getConnection();
         PreparedStatement preparedStatement = null;
         try {
-            String SQL = "UPDATE factory SET fid = ?, factoryName = ?, factoryAddress = ?, postCode = ?, telephoneNumber = ?, remark = ?;";
+            String SQL = "UPDATE factory SET factoryName = ?, factoryAddress = ?, postCode = ?, telephoneNumber = ?, remark = ? WHERE fid = ?;";
             preparedStatement = connection.prepareStatement(SQL);
-            preparedStatement.setInt(1, factory.getFid());
-            preparedStatement.setString(2, factory.getFactoryName());
-            preparedStatement.setString(3, factory.getFactoryAddress());
-            preparedStatement.setString(4, factory.getPostCode());
-            preparedStatement.setString(5, factory.getTelephoneNumber());
-            preparedStatement.setString(6, factory.getRemark());
+            preparedStatement.setString(1, factory.getFactoryName());
+            preparedStatement.setString(2, factory.getFactoryAddress());
+            preparedStatement.setString(3, factory.getPostCode());
+            preparedStatement.setString(4, factory.getTelephoneNumber());
+            preparedStatement.setString(5, factory.getRemark());
+            preparedStatement.setInt(6, factoryId);
             int RES = preparedStatement.executeUpdate();
             if (RES == 1) {
                 logger.info("更新编号为" + factoryId + "的厂家信息成功");
@@ -177,7 +177,7 @@ public class FactoryDaoImpl implements FactoryDao {
             preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setInt(1, factoryId);
             int RES = preparedStatement.executeUpdate();
-            if (RES == 0) {
+            if (RES == 1) {
                 logger.info("删除编号为" + factoryId + "的厂家信息成功");
             } else {
                 logger.error("删除编号为" + factoryId + "的厂家信息失败");
@@ -190,10 +190,5 @@ public class FactoryDaoImpl implements FactoryDao {
             MysqlUtil.closePreparedStatement(preparedStatement);
         }
     }
-
-//    public static void main(String[] args) {
-//        FactoryDao factoryDao =new FactoryDaoImpl();
-//        System.out.println(factoryDao.queryFactoryById(20200010) == null);
-//    }
 
 }

@@ -122,7 +122,7 @@ public class InnerSearchStockByIdFrame extends JInternalFrame{
             StockService stockService = new StockService();
             Stock stock = stockService.queryStockByIdService(IntMid);
             StringBuffer result = new StringBuffer();
-            result.append("————查询结果如下————\r\n")
+            result.append("————查询结果如下————" + "\r\n")
                     .append("▶药品编号：" + medicine.getMid() + "\r\n")
                     .append("▶药品名称：" + medicine.getMedicineName() + "\r\n")
                     .append("▶库存数量：" + stock.getStockQuantity() + "\r\n")

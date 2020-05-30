@@ -20,8 +20,20 @@ public class UserService {
         userDao.addUser(user);
     }
 
+    public void updateUserService(int uid, User user) {
+        userDao.updateUserById(uid, user);
+    }
+
+    public void updateUserPasswordService(int uid, String password) {
+        userDao.updateUserPassword(uid, password);
+    }
+
     public int queryUidService(String username) {
         return userDao.queryUidByName(username);
+    }
+
+    public User queryUserService(int uid) {
+        return userDao.queryUserById(uid);
     }
 
 }

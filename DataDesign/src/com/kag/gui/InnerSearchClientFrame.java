@@ -1,9 +1,8 @@
 package com.kag.gui;
 
-import com.kag.entity.Medicine;
-import com.kag.entity.Stock;
-import com.kag.service.MedicineService;
-import com.kag.service.StockService;
+import com.kag.entity.Client;
+import com.kag.service.ClientService;
+import com.kag.service.FactoryService;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -12,11 +11,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @Description: 内部库存查询界面(根据Name)
+ * @Description: 内部客户查询界面
  * @Author: 陈子康
- * @Date: 2020/5/26
+ * @Date: 2020/5/29
  */
-public class InnerSearchStockByNameFrame extends JInternalFrame {
+public class InnerSearchClientFrame extends JInternalFrame{
 
     public final JTextField Text_Search = new JTextField();
     public final JTextArea Area_Result = new JTextArea();
@@ -25,7 +24,7 @@ public class InnerSearchStockByNameFrame extends JInternalFrame {
     private final Font Font_Text = new Font("微软雅黑", Font.PLAIN, 18);
     private final Font Font_Area = new Font("华文楷体", Font.PLAIN, 18);
 
-    private final ImageIcon BackIcon = new ImageIcon("img/SearchStockBack.png");
+    private final ImageIcon BackIcon = new ImageIcon("img/SearchBack.png");
     private final ImageIcon LogoIcon = new ImageIcon("img/SearchLogo.png");
     private final ImageIcon SearchIcon = new ImageIcon("img/SearchButton.png");
     private final ImageIcon ReturnIcon = new ImageIcon("img/ReturnButton.png");
@@ -34,7 +33,7 @@ public class InnerSearchStockByNameFrame extends JInternalFrame {
     private final JLayeredPane LayeredPane = getLayeredPane();
 
 
-    public InnerSearchStockByNameFrame() {
+    public InnerSearchClientFrame() {
         initInnerFrameBackground();
         initInnerFrameProperty();
         initInnerFrameComponent();
@@ -50,11 +49,11 @@ public class InnerSearchStockByNameFrame extends JInternalFrame {
 
     private void initInnerFrameProperty() {
         setBounds(300, 100, BackIcon.getIconWidth(), BackIcon.getIconHeight());
-        setVisible(false);
+        setVisible(true);
         setLayout(null);
         setClosable(true);
         setIconifiable(true);
-        setTitle("输入药品名称查询库存");
+        setTitle("输入客户编号或者名称查询信息");
         setFrameIcon(LogoIcon);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     }
@@ -65,28 +64,29 @@ public class InnerSearchStockByNameFrame extends JInternalFrame {
         Text_Search.setFont(Font_Text);
         Text_Search.setOpaque(false);
         Text_Search.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        Text_Search.setBounds(80 - 3, 30, 195, 30);
+        Text_Search.setBounds(80-3, 30, 270, 30);
         Text_Search.addActionListener(new SearchAction());
         add(Area_Result);
         Area_Result.setFont(Font_Area);
         Area_Result.setOpaque(false);
         Area_Result.setEditable(false);
         Area_Result.setSelectedTextColor(Color.BLUE);
-        Area_Result.setBounds(50 - 3, 80, 255, 200);
+        Area_Result.setBounds(50, 80, 330, 250);
 
         add(Button_Search);
         add(Button_Return);
         Button_Search.setIcon(SearchIcon);
         Button_Return.setIcon(ReturnIcon);
         Button_Return.setBounds(50, 30, 30, 30);
-        Button_Search.setBounds(275 - 3, 30, 30, 30);
+        Button_Search.setBounds(350 - 3, 30, 30, 30);
         Button_Search.addActionListener(new SearchAction());
+        Button_Return.addActionListener(new ReturnAction());
 
         JScrollPane Scroll_Result = new JScrollPane(Area_Result);
         Scroll_Result.setOpaque(false);
         Scroll_Result.getViewport().setOpaque(false);
         getContentPane().add(Scroll_Result);
-        Scroll_Result.setBounds(50 - 3, 80, 255, 200);
+        Scroll_Result.setBounds(50, 80, 330, 250);
         Scroll_Result.setViewportView(Area_Result);
         TitledBorder SearchBorder = new TitledBorder("Search");
         SearchBorder.setTitleFont(new Font("微软雅黑", Font.PLAIN, 10));
@@ -97,25 +97,43 @@ public class InnerSearchStockByNameFrame extends JInternalFrame {
     class SearchAction implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String medicineName = Text_Search.getText();
+            String search = Text_Search.getText();
+            Client client = null;
+            ClientService clientService = new ClientService();
 
-            MedicineService medicineService = new MedicineService();
-            Medicine medicine = medicineService.queryMedicineByNameService(medicineName);
-            if (medicine == null) {
-                Area_Result.setText("药品不存在");
-                return;
+            boolean isID = true;
+            for (int i = 0; i < search.length(); i++) {
+                if (!Character.isDigit(search.charAt(i))) {
+                    isID = false;
+                    break;
+                }
             }
+            if (isID) {
+                client = clientService.queryClientByIdService(Integer.valueOf(search));
+            } else {
+                client = clientService.queryClientByNameService(search);
+            }
+            if (client == null) {
+                Area_Result.setText("未查询到任何我客户,\r\n请检查输入后再查询。");
+            } else {
+                StringBuffer stringBuffer = new StringBuffer();
+                stringBuffer.append("—————查询结果如下——————" + "\r\n")
+                        .append("▶客户编号：" + client.getCid() + "\r\n")
+                        .append("▶客户姓名：" + client.getClientName() + "\r\n")
+                        .append("▶客户地址：" + client.getClientAddress() + "\r\n")
+                        .append("▶电话号码：" + client.getPhoneNumber() + "\r\n")
+                        .append("▶银行卡号：" + client.getBankCard() + "\r\n")
+                        .append("▶信任度：" + client.getCredibility() + "\r\n")
+                        .append("▶备注：" + client.getRemark());
+                Area_Result.setText(new String(stringBuffer));
+            }
+        }
+    }
 
-            StockService stockService = new StockService();
-            Stock stock = stockService.queryStockByIdService(medicine.getMid());
-
-            StringBuffer result = new StringBuffer();
-            result.append("————查询结果如下————" + "\r\n")
-                    .append("▶药品编号：" + medicine.getMid() + "\r\n")
-                    .append("▶药品名称：" + medicine.getMedicineName() + "\r\n")
-                    .append("▶库存数量：" + stock.getStockQuantity() + "\r\n")
-                    .append("▶备注：" + stock.getRemark());
-            Area_Result.setText(result.toString());
+    class ReturnAction implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            setVisible(false);
         }
     }
 

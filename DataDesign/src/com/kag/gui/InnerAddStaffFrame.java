@@ -185,8 +185,6 @@ public class InnerAddStaffFrame extends JInternalFrame {
         add(Button_Return);
         Button_Finish.setFont(Font_Button);
         Button_Return.setFont(Font_Button);
-//        Button_Finish.setBorderPainted(false);
-//        Button_Return.setBorderPainted(false);
         Button_Finish.setBounds(new Rectangle(150, 500, 80, 30));
         Button_Return.setBounds(new Rectangle(370, 500, 80, 30));
         Button_Finish.addActionListener(new AddStaffFinishAction());
@@ -276,18 +274,18 @@ public class InnerAddStaffFrame extends JInternalFrame {
         int sid = 20200101;
         @Override
         public void actionPerformed(ActionEvent e) {
-            //setVisible(false);
-            /**
-             * 点击一次返回，自动填充一次资料
-             */
-            Text_Sid.setText(String.valueOf(sid++));
-            Text_StaffName.setText(RandomPersonInfoGenerator.getChineseName());
-            String password = new RandomPasswordGenerator(10, 3).getRandomPassword();
-            Text_Password.setText(password);
-            Text_SureWord.setText(password);
-            Text_Address.setText(RandomPersonInfoGenerator.getAddress());
-            Text_PhoneNumber.setText(RandomPersonInfoGenerator.getTel());
-            Text_BankCard.setText(RandomCreditCardNumberGenerator.getRandomCardNumber());
+            setVisible(false);
+//            /**
+//             * 点击一次返回，自动填充一次资料
+//             */
+//            Text_Sid.setText(String.valueOf(sid++));
+//            Text_StaffName.setText(RandomPersonInfoGenerator.getChineseName());
+//            String password = new RandomPasswordGenerator(10, 3).getRandomPassword();
+//            Text_Password.setText(password);
+//            Text_SureWord.setText(password);
+//            Text_Address.setText(RandomPersonInfoGenerator.getAddress());
+//            Text_PhoneNumber.setText(RandomPersonInfoGenerator.getTel());
+//            Text_BankCard.setText(RandomCreditCardNumberGenerator.getRandomCardNumber());
         }
     }
 

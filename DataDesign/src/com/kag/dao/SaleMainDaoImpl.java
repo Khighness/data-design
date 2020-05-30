@@ -75,10 +75,4 @@ public class SaleMainDaoImpl implements SaleMainDao{
         }
     }
 
-//    public static void main(String[] args) {
-//        SaleMainDao saleMainDao = new SaleMainDaoImpl();
-//        saleMainDao.addSaleMain(new SaleMain("20200522931", 10, 2313321.23, Calendar.getInstance().getTime(), 20200002, 20200002, "Test"));
-//        saleMainDao.updateSaleTransaction("20200522931", 9999999.99);
-//    }
-
 }

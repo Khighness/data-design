@@ -20,7 +20,6 @@ import java.util.Date;
  */
 public class InnerUpdateMedicineFrame extends JInternalFrame {
 
-    private int mid;
     private Medicine medicine;
     private MedicineService medicineService = new MedicineService();
 
@@ -67,8 +66,8 @@ public class InnerUpdateMedicineFrame extends JInternalFrame {
     private final JPanel ContentPanel = (JPanel) getContentPane();
     private final JLayeredPane LayeredPane = getLayeredPane();
 
-    public InnerUpdateMedicineFrame(int mid) {
-        this.mid = mid;
+    public InnerUpdateMedicineFrame(Medicine medicine) {
+        this.medicine = medicine;
         initInnerFrameBackground();
         initInnerFrameProperty();
         initInnerFrameComponent();
@@ -232,7 +231,6 @@ public class InnerUpdateMedicineFrame extends JInternalFrame {
     }
 
     private void initInnerFrameData() {
-        medicine = medicineService.queryMedicineByIdService(mid);
         Text_MedicineName.setText(medicine.getMedicineName());
         Text_PurchasePrice.setText(String.valueOf(medicine.getPurchasePrice()));
         Text_RetailPrice.setText(String.valueOf(medicine.getRetailPrice()));
@@ -326,7 +324,7 @@ public class InnerUpdateMedicineFrame extends JInternalFrame {
             medicine.setAboutUse(aboutUse);
             medicine.setTaboo(taboo);
             medicine.setAdverseReactions(adverseReaction);
-            medicineService.updateMedicineInfoService(mid, medicine);
+            medicineService.updateMedicineInfoService(medicine.getMid(), medicine);
             JOptionPane.showMessageDialog(null, "修改药品信息成功", "Success", JOptionPane.YES_OPTION);
         }
     }

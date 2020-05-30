@@ -74,11 +74,4 @@ public class PurchaseMainDaoImpl implements PurchaseMainDao {
         }
     }
 
-
-//    public static void main(String[] args) {
-//        PurchaseMainDao purchaseMainDao = new PurchaseMainDaoImpl();
-//        purchaseMainDao.addPurchaseMain(new PurchaseMain("12020052509072000060027", 100, 1300848.12, Calendar.getInstance().getTime(), 20200002, 20200001, "K"));
-//        purchaseMainDao.updatePurchaseTransaction("12020052509072000060027", 99999);
-//    }
-
 }

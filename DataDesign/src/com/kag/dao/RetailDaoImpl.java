@@ -50,9 +50,4 @@ public class RetailDaoImpl implements RetailDao{
         }
     }
 
-//    public static void main(String[] args) {
-//        RetailDao retailDao = new RetailDaoImpl();
-//        retailDao.addRetail(new Retail("2020005221009", 20200001, 3, 100, Calendar.getInstance().getTime(), 20200001, 20200022, "Test"));
-//    }
-
 }

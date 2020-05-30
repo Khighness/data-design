@@ -102,10 +102,4 @@ public class LedgerDaoImpl implements LedgerDao{
         return ledger;
     }
 
-//    public static void main(String[] args) {
-//        Ledger ledger = new Ledger("1", 1, 1);
-//        LedgerDao ledgerDao = new LedgerDaoImpl();
-//        ledgerDao.addLedger(ledger);
-//    }
-
 }

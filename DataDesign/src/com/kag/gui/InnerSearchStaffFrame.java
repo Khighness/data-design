@@ -2,20 +2,23 @@ package com.kag.gui;
 
 import com.kag.common.TimeUtil;
 import com.kag.entity.Medicine;
+import com.kag.entity.Staff;
 import com.kag.service.MedicineService;
+import com.kag.service.StaffService;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * @Description: 内部药品查询界面(根据ID或者药名)
  * @Author: 陈子康
  * @Date: 2020/5/26
  */
-public class InnerSearchMedicineFrame extends JInternalFrame {
+public class InnerSearchStaffFrame extends JInternalFrame {
 
     public final JTextField Text_Search = new JTextField();
     public final JTextArea Area_Result = new JTextArea();
@@ -33,7 +36,7 @@ public class InnerSearchMedicineFrame extends JInternalFrame {
     private final JLayeredPane LayeredPane = getLayeredPane();
 
 
-    public InnerSearchMedicineFrame() {
+    public InnerSearchStaffFrame() {
         initInnerFrameBackground();
         initInnerFrameProperty();
         initInnerFrameComponent();
@@ -53,7 +56,7 @@ public class InnerSearchMedicineFrame extends JInternalFrame {
         setLayout(null);
         setClosable(true);
         setIconifiable(true);
-        setTitle("输入药品编号或者名称查询信息");
+        setTitle("输入职员编号或者姓名查询信息");
         setFrameIcon(LogoIcon);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     }
@@ -97,9 +100,11 @@ public class InnerSearchMedicineFrame extends JInternalFrame {
     class SearchAction implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            Area_Result.setText(null);
             String search = Text_Search.getText();
-            Medicine medicine = null;
-            MedicineService medicineService = new MedicineService();
+            Staff staff = null;
+            java.util.List<Staff> staffList = null;
+            StaffService staffService = new StaffService();
 
             boolean isID = true;
             for (int i = 0; i < search.length(); i++) {
@@ -109,34 +114,48 @@ public class InnerSearchMedicineFrame extends JInternalFrame {
                 }
             }
             if (isID) {
-                medicine = medicineService.queryMedicineByIdService(Integer.valueOf(search));
+                staff = staffService.queryStaffByIdService(Integer.valueOf(search));
             } else {
-                medicine = medicineService.queryMedicineByNameService(search);
+                staffList = staffService.queryStaffByNameService(search);
             }
-            if (medicine == null) {
-                Area_Result.setText("未查询到任何我药品,\r\n请检查输入后再查询。");
-            } else {
+            if (staff != null) {
                 StringBuffer stringBuffer = new StringBuffer();
-                String produceDate = null;
-                if (medicine.getProduceDate() != null) {
-                    produceDate = TimeUtil.getFormatDate(medicine.getProduceDate());
+                String birthDate = null;
+                if (staff.getBirthDate() != null) {
+                    birthDate = TimeUtil.getFormatDate(staff.getBirthDate());
                 }
+                String status = (staff.getStatus() == 1) ? "在职" : "离职";
                 stringBuffer.append("—————查询结果如下——————" + "\r\n")
-                        .append("▶药品编号：" + medicine.getMid() + "\r\n")
-                        .append("▶药品名称：" + medicine.getMedicineName() + "\r\n")
-                        .append("▶进货价格：" + medicine.getPurchasePrice() + "\r\n")
-                        .append("▶零售价格：" + medicine.getRetailPrice() + "\r\n")
-                        .append("▶批发价格：" + medicine.getSalePrice() + "\r\n")
-                        .append("▶生产日期：" + produceDate + "\r\n")
-                        .append("▶保质期：" + medicine.getShelfLife() + "天" + "\r\n")
-                        .append("▶性状：" + medicine.getCharacter() + "\r\n")
-                        .append("▶剂型：" + medicine.getDosageForm() + "\r\n")
-                        .append("▶成分：" + medicine.getIngredient() + "\r\n")
-                        .append("▶适应症：" + medicine.getIndication() + "\r\n")
-                        .append("▶用法用量：" + medicine.getAboutUse() + "\r\n")
-                        .append("▶禁忌：" + medicine.getTaboo() + "\r\n")
-                        .append("▶不良反应：" + medicine.getAdverseReactions());
+                        .append("▶职员编号：" + staff.getSid() + "\r\n")
+                        .append("▶职员姓名：" + staff.getStaffName() + "\r\n")
+                        .append("▶出生日期：" + birthDate + "\r\n")
+                        .append("▶职员地址：" + staff.getAddress() + "\r\n")
+                        .append("▶电话号码：" + staff.getPhoneNumber() + "\r\n")
+                        .append("▶银行卡号：" + staff.getBankCard() + "\r\n")
+                        .append("▶在职状态：" + status + "\r\n");
                 Area_Result.setText(new String(stringBuffer));
+            } else if (staffList.size() != 0){
+                StringBuffer stringBuffer = new StringBuffer();
+                int i = 1;
+                for (Staff s : staffList) {
+                    String birthDate = null;
+                    if (s.getBirthDate() != null) {
+                        birthDate = TimeUtil.getFormatDate(s.getBirthDate());
+                    }
+                    String status = (s.getStatus() == 1) ? "在职" : "离职";
+                    stringBuffer.append("—————查询结果如下——————" + "\r\n")
+                            .append("第" + (i++) +"位职员信息" + "\r\n")
+                            .append("▶职员编号：" + s.getSid() + "\r\n")
+                            .append("▶职员姓名：" + s.getStaffName() + "\r\n")
+                            .append("▶出生日期：" + birthDate + "\r\n")
+                            .append("▶职员地址：" + s.getAddress() + "\r\n")
+                            .append("▶电话号码：" + s.getPhoneNumber() + "\r\n")
+                            .append("▶银行卡号：" + s.getBankCard() + "\r\n")
+                            .append("▶在职状态：" + status + "\r\n");
+                }
+                Area_Result.setText(new String(stringBuffer));
+            } else {
+                Area_Result.setText("未查询到任何我职员,\r\n请检查输入后再查询。");
             }
         }
     }

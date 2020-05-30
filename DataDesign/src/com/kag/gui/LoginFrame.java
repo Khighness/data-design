@@ -10,6 +10,7 @@ package com.kag.gui;
 import com.kag.service.LoginService;
 import com.kag.common.ExceptUtil;
 import com.kag.service.StaffService;
+import com.kag.service.UserService;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -89,20 +90,21 @@ public class LoginFrame extends JFrame {
                 LoginFlag = loginService.StaffLoginCheck(Username, Password);
             }
             if ( LoginFlag.equals("true") ) {
-                JOptionPane.showMessageDialog(null, "登陆成功", "Success", JOptionPane.YES_NO_CANCEL_OPTION);
+                if (Identity.equals("Admin")) {
+                    setVisible(false);
+                    int uid = new UserService().queryUidService(Username);
+                    new ProcessShow(1, uid);
+                } else {
+                    setVisible(false);
+                    int sid = new StaffService().querySidService(Username);
+                    new ProcessShow(2, sid);
+                }
             } else if ( LoginFlag.equals("false") ) {
                 JOptionPane.showMessageDialog(null, "密码错误", "Error",JOptionPane.YES_NO_OPTION);
                 return;
             } else {
                 JOptionPane.showMessageDialog(null, LoginFlag, "Error",JOptionPane.YES_NO_OPTION);
                 return;
-            }
-            if (Identity.equals("Admin")) {
-                setVisible(false);
-                //new MainFrame(new UserService().queryUidService(Username));
-            } else {
-                setVisible(false);
-                new StaffMainFrame(new StaffService().querySidService(Username));
             }
         }
     }
@@ -260,9 +262,4 @@ public class LoginFrame extends JFrame {
             ExceptUtil.printException(e4);
         }
     }
-
-    public static void main(String[] args) throws IOException {
-        new LoginFrame();
-    }
-
 }

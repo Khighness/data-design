@@ -217,17 +217,4 @@ public class StockDaoImpl implements StockDao{
         }
     }
 
-//    public static void main(String[] args) {
-//        StockDao stockDao = new StockDaoImpl();
-//        stockDao.addStock(20200003);
-//        stockDao.addStock(20200004);
-//        stockDao.updateIncreaseStock(20200001, 10000);
-//        stockDao.updateDecreaseStock(20200002, 10);
-//        for (Stock s:stockDao.queryStock()) {
-//            System.out.println(s.toString());
-//        }
-//        System.out.println(stockDao.queryStockById(20200002));
-//        System.out.println(stockDao.queryStockQuantityById(20200001));
-//        stockDao.deleteStock(20200010);
-//    }
 }

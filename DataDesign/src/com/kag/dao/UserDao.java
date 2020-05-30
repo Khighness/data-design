@@ -15,9 +15,30 @@ public interface UserDao {
     public void addUser(User user);
 
     /**
+     * @Description: 根据ID更新用户
+     * @param uid
+     * @param user
+     */
+    public void updateUserById(int uid, User user);
+
+    /**
+     * @Description: 根据ID修改密码
+     * @param uid
+     * @param password
+     */
+    public void updateUserPassword(int uid, String password);
+
+    /**
      * @Description: 根据姓名查询ID
      * @param username
-     * @return
+     * @return uid
      */
     public int queryUidByName(String username);
+
+    /**
+     * @Description: 根据ID查询用户
+     * @param uid
+     * @return user
+     */
+    public User queryUserById(int uid);
 }

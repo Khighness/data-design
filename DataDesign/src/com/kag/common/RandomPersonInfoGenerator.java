@@ -106,9 +106,4 @@ public class RandomPersonInfoGenerator {
         map.put("email", getEmail(6, 9));
         return map;
     }
-
-    public static void main(String[] args) {
-        System.out.println(getTel());
-    }
-
 }

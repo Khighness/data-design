@@ -57,8 +57,4 @@ public class ImageUtil {
         return byteArrayOutputStream.toByteArray();
     }
 
-    public static void main(String[] args) {
-        String DIR = "C:\\Users\\think\\Desktop\\";
-        transferAlpha(DIR+"EditButton.png", DIR+"EditButton.png");
-    }
 }

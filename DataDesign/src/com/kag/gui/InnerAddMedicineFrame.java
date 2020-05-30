@@ -184,10 +184,15 @@ public class InnerAddMedicineFrame extends JInternalFrame {
                 }
             }
 
-            Medicine medicine = new Medicine(Integer.valueOf(mid), medicineName, character, dosageForm, qualityStandard, indication, aboutUse, taboo, adverseReactions);
+            int Mid = Integer.valueOf(mid);
             MedicineService medicineService = new MedicineService();
+            if (medicineService.queryMedicineByIdService(Mid) != null) {
+                JOptionPane.showMessageDialog(null, "药品编号不能重复", "Medicine id Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            Medicine medicine = new Medicine(Mid, medicineName, character, dosageForm, qualityStandard, indication, aboutUse, taboo, adverseReactions);
             medicineService.addMedicineDetailInfoService(medicine);
-            JOptionPane.showMessageDialog(null, "添加药品信息成功", "Success", JOptionPane.YES_OPTION);
+            JOptionPane.showMessageDialog(null, "添加药品信息成功", "Success", JOptionPane.INFORMATION_MESSAGE);
             StockService stockService = new StockService();
             stockService.addStockService(Integer.valueOf(mid));
         }

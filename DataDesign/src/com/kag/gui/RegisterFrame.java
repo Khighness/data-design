@@ -38,7 +38,7 @@ public class RegisterFrame extends JFrame {
     private final Font Button_Font = new Font("华文楷体", 1, 18);
 
     private final ImageIcon BackIcon = new ImageIcon("img/RegisterBack.png");
-    private final ImageIcon LogoIcon = new ImageIcon("img/RegisterLogo.png");
+    private final ImageIcon LogoIcon = new ImageIcon("img/UserLogo.png");
     private final JLabel BackLabel = new JLabel(BackIcon);
     private final JPanel BackPanel = (JPanel) getContentPane();
 
@@ -251,10 +251,6 @@ public class RegisterFrame extends JFrame {
                 ex.printStackTrace();
             }
         }
-    }
-
-    public static void main(String[] args) throws Exception {
-        RegisterFrame r = new RegisterFrame();
     }
 
 }

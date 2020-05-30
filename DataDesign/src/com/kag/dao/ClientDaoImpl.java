@@ -53,16 +53,15 @@ public class ClientDaoImpl implements ClientDao{
         Connection connection = MysqlUtil.getConnection();
         PreparedStatement preparedStatement = null;
         try {
-            String SQL = "UPDATE client SET cid = ?, clientName = ?, clientAddress = ?, phoneNumber = ?, bankCard = ?, credibility = ?, remark = ? WHERE cid = ?";
+            String SQL = "UPDATE client SET clientName = ?, clientAddress = ?, phoneNumber = ?, bankCard = ?, `\u200Bcredibility` = ?, remark = ? WHERE cid = ?";
             preparedStatement = connection.prepareStatement(SQL);
-            preparedStatement.setInt(1, client.getCid());
-            preparedStatement.setString(2, client.getClientName());
-            preparedStatement.setString(3, client.getClientAddress());
-            preparedStatement.setString(4, client.getPhoneNumber());
-            preparedStatement.setString(5, client.getBankCard());
-            preparedStatement.setDouble(6, client.getCredibility());
-            preparedStatement.setString(7, client.getRemark());
-            preparedStatement.setInt(8, clientId);
+            preparedStatement.setString(1, client.getClientName());
+            preparedStatement.setString(2, client.getClientAddress());
+            preparedStatement.setString(3, client.getPhoneNumber());
+            preparedStatement.setString(4, client.getBankCard());
+            preparedStatement.setDouble(5, client.getCredibility());
+            preparedStatement.setString(6, client.getRemark());
+            preparedStatement.setInt(7, clientId);
             int RES = preparedStatement.executeUpdate();
             if (RES == 1) {
                 logger.info("更新客户信息成功");
@@ -197,25 +196,4 @@ public class ClientDaoImpl implements ClientDao{
             MysqlUtil.closePreparedStatement(preparedStatement);
         }
     }
-
-//    public static void main(String[] args) {
-//        ClientDao clientDao = new ClientDaoImpl();
-//        Random random = new Random();
-//        for (int i = 20200001; i <= 20200100; i++) {
-//            BigDecimal bigDecimal = new BigDecimal(10 * random.nextDouble());
-//            clientDao.addClient(new Client(i, RandomPersonInfoGenerator.getChineseName(),
-//                    RandomPersonInfoGenerator.getAddress(),
-//                    RandomPersonInfoGenerator.getTel(),
-//                    RandomCreditCardNumberGenerator.getRandomCardNumber(),
-//                    bigDecimal.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue(),
-//                    " "));
-//        }
-//        clientDao.addClient(new Client(20200100, RandomPersonInfoGenerator.getChineseName(),
-//                    RandomPersonInfoGenerator.getAddress(),
-//                    RandomPersonInfoGenerator.getTel(),
-//                    RandomCreditCardNumberGenerator.getRandomCardNumber(),
-//                    8.7,
-//                    " "));
-//        clientDao.deleteClient(20200101);
-//    }
 }

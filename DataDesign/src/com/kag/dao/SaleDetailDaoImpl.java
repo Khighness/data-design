@@ -45,9 +45,4 @@ public class SaleDetailDaoImpl implements SaleDetailDao {
         }
     }
 
-//    public static void main(String[] args) {
-//        SaleDetailDao saleDetailDao = new SaleDetailDaoImpl();
-//        saleDetailDao.addSaleDetail(new SaleDetail("20200522931", 20200001, 100, "Test"));
-//    }
-
 }

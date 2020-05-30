@@ -46,9 +46,4 @@ public class PurchaseDetailDaoImpl implements PurchaseDetailDao {
         }
     }
 
-//    public static void main(String[] args) {
-//        PurchaseDetailDao purchaseDetailDao = new PurchaseDetailDaoImpl();
-//        purchaseDetailDao.addPurchaseDetail(new PurchaseDetail("12020052509172000060027", 20200002, 90.9, 100,"Test" ));
-//    }
-
 }

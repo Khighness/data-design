@@ -1,12 +1,16 @@
 package com.kag.gui;
 
+import com.kag.common.ColorUtil;
 import com.kag.common.ExceptUtil;
 import com.kag.entity.Client;
 import com.kag.entity.Factory;
 import com.kag.entity.Medicine;
+import com.kag.entity.Staff;
 import com.kag.service.ClientService;
 import com.kag.service.FactoryService;
 import com.kag.service.MedicineService;
+import com.kag.service.StaffService;
+import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,19 +18,26 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @Description: 职员主界面
+ * @Description: 管理员主界面
  * @Author: 陈子康
  * @Date: 2020/5/20
  */
-public class StaffMainFrame extends JFrame {
+public class AdminMainFrame extends JFrame {
 
-    private int sid;
+    private int uid;
     private JDesktopPane DesktopPane = new JDesktopPane();
     private final JMenuBar Menu = new JMenuBar();
+    private final JMenu Menu_Staff = new JMenu("职员");
     private final JMenu Menu_Medicine = new JMenu("药品");
     private final JMenu Menu_Factory = new JMenu("厂家");
     private final JMenu Menu_Client = new JMenu("客户");
+    private final JMenu Menu_Ledger = new JMenu("账本");
+    private final JMenu Menu_Person = new JMenu("个人");
     private final JMenu Menu_About = new JMenu("关于");
+    private final JMenuItem Menu_Staff_Item_Add = new JMenuItem("增加");
+    private final JMenuItem Menu_Staff_Item_Query = new JMenuItem("查询");
+    private final JMenuItem Menu_Staff_Item_Depart = new JMenuItem("离职");
+    private final JMenuItem Menu_Staff_Item_Delete = new JMenuItem("删除");
     private final JMenuItem Menu_Medicine_Item_Add = new JMenuItem("增加");
     private final JMenuItem Menu_Medicine_Item_Update = new JMenuItem("更改");
     private final JMenuItem Menu_Medicine_Item_Query = new JMenuItem("查询");
@@ -39,34 +50,26 @@ public class StaffMainFrame extends JFrame {
     private final JMenuItem Menu_Client_Item_Update = new JMenuItem("更改");
     private final JMenuItem Menu_Client_Item_Query = new JMenuItem("查询");
     private final JMenuItem Menu_Client_Item_Delete = new JMenuItem("删除");
+    private final JMenuItem Menu_Ledger_Item_Query = new JMenuItem("查看");
+    private final JMenuItem Menu_Person_Query_Info = new JMenuItem("我的信息");
+    private final JMenuItem Menu_Person_Update_Info = new JMenuItem("修改信息");
+    private final JMenuItem Menu_Person_Update_Word = new JMenuItem("修改密码");
+    private final JMenuItem Menu_Person_Logout = new JMenuItem("退出登录");
     private final JMenuItem Menu_About_Item_Detail =new JMenuItem("详情");
     private final Font Font_Menu = new Font("微软雅黑", Font.PLAIN, 20);
 
-    private final JButton Button_Purchase = new JButton("进货");
-    private final JButton Button_Sale = new JButton("批发");
-    private final JButton Button_Retail = new JButton("零售");
-    private final JButton Button_Stock = new JButton("库存");
-    private final JButton Button_Person = new JButton("个人");
-    private final Font Button_Font = new Font("微软雅黑", Font.BOLD, 30);
-
-    private final ImageIcon PurchaseIcon = new ImageIcon("img/PurchaseButton.png");
-    private final ImageIcon SaleIcon = new ImageIcon("img/SaleButton.png");
-    private final ImageIcon RetailIcon = new ImageIcon("img/RetailButton.png");
-    private final ImageIcon ShockIcon = new ImageIcon("img/StockButton.png");
-    private final ImageIcon PersonIcon = new ImageIcon("img/PersonButton.png");
-
-    private final ImageIcon BackIcon = new ImageIcon("img/StaffMainBack.png");
+    private final ImageIcon BackIcon = new ImageIcon("img/AdminMainBack.jpg");
     private final ImageIcon LogoIcon = new ImageIcon("img/SysLogo.png");
     private final ImageIcon TimeIcon = new ImageIcon("img/TimeBack.png");
     private final JPanel TimePanel = new ClockPanel();
     private final JLabel BackLabel = new JLabel(BackIcon);
-    private final JLabel TimeLabel = new JLabel(TimeIcon);
+    private final JLabel TimeLabel = new JLabel();
     private final JPanel ContentPanel = (JPanel) getContentPane();
     private final JLayeredPane LayeredPanel =   getLayeredPane();
 
-    public StaffMainFrame(int sid) {
+    public AdminMainFrame(int uid) {
         super();
-        this.sid = sid;
+        this.uid = uid;
         initFrameBackground();
         initFrameProperty();
         initFrameComponent();
@@ -83,6 +86,7 @@ public class StaffMainFrame extends JFrame {
         DesktopPane.add(BackLabel, new Integer(Integer.MIN_VALUE));
         TimeLabel.setBorder(BorderFactory.createLineBorder(Color.ORANGE));
         TimeLabel.setBorder(BorderFactory.createRaisedBevelBorder());
+        TimeLabel.setBackground(ColorUtil.color6);
         DesktopPane.add(TimeLabel);
         TimeLabel.setBounds(BackIcon.getIconWidth() - TimeIcon.getIconWidth() - 10, BackIcon.getIconHeight() - TimeIcon.getIconHeight() - 70, TimeIcon.getIconWidth(), TimeIcon.getIconHeight());
     }
@@ -114,15 +118,18 @@ public class StaffMainFrame extends JFrame {
     }
 
     private void initFrameComponent() {
-
-        /**
-         * @Description: 导航栏
-         */
         Menu.setOpaque(false);
+        Menu_Staff.setFont(Font_Menu);
         Menu_Medicine.setFont(Font_Menu);
         Menu_Factory.setFont(Font_Menu);
         Menu_Client.setFont(Font_Menu);
+        Menu_Ledger.setFont(Font_Menu);
+        Menu_Person.setFont(Font_Menu);
         Menu_About.setFont(Font_Menu);
+        Menu_Staff_Item_Add.setFont(Font_Menu);
+        Menu_Staff_Item_Query.setFont(Font_Menu);
+        Menu_Staff_Item_Depart.setFont(Font_Menu);
+        Menu_Staff_Item_Delete.setFont(Font_Menu);
         Menu_Medicine_Item_Add.setFont(Font_Menu);
         Menu_Medicine_Item_Update.setFont(Font_Menu);
         Menu_Medicine_Item_Query.setFont(Font_Menu);
@@ -135,11 +142,23 @@ public class StaffMainFrame extends JFrame {
         Menu_Factory_Item_Update.setFont(Font_Menu);
         Menu_Factory_Item_Query.setFont(Font_Menu);
         Menu_Factory_Item_Delete.setFont(Font_Menu);
+        Menu_Ledger_Item_Query.setFont(Font_Menu);
+        Menu_Person_Query_Info.setFont(Font_Menu);
+        Menu_Person_Update_Info.setFont(Font_Menu);
+        Menu_Person_Update_Word.setFont(Font_Menu);
+        Menu_Person_Logout.setFont(Font_Menu);
         Menu_About_Item_Detail.setFont(Font_Menu);
+        Menu.add(Menu_Staff);
         Menu.add(Menu_Medicine);
         Menu.add(Menu_Factory);
         Menu.add(Menu_Client);
+        Menu.add(Menu_Ledger);
+        Menu.add(Menu_Person);
         Menu.add(Menu_About);
+        Menu_Staff.add(Menu_Staff_Item_Add);
+        Menu_Staff.add(Menu_Staff_Item_Query);
+        Menu_Staff.add(Menu_Staff_Item_Depart);
+        Menu_Staff.add(Menu_Staff_Item_Delete);
         Menu_Medicine.add(Menu_Medicine_Item_Add);
         Menu_Medicine.add(Menu_Medicine_Item_Update);
         Menu_Medicine.add(Menu_Medicine_Item_Query);
@@ -152,7 +171,17 @@ public class StaffMainFrame extends JFrame {
         Menu_Client.add(Menu_Client_Item_Update);
         Menu_Client.add(Menu_Client_Item_Query);
         Menu_Client.add(Menu_Client_Item_Delete);
+        Menu_Ledger.add(Menu_Ledger_Item_Query);
+        Menu_Person.add(Menu_Person_Query_Info);
+        Menu_Person.add(Menu_Person_Update_Info);
+        Menu_Person.add(Menu_Person_Update_Word);
+        Menu_Person.add(Menu_Person_Logout);
         Menu_About.add(Menu_About_Item_Detail);
+
+        Menu_Staff_Item_Add.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, Event.ALT_MASK));
+        Menu_Staff_Item_Query.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, Event.ALT_MASK));
+        Menu_Staff_Item_Depart.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, Event.ALT_MASK));
+        Menu_Staff_Item_Delete.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, Event.ALT_MASK));
         Menu_Medicine_Item_Add.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, Event.CTRL_MASK));
         Menu_Medicine_Item_Update.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, Event.CTRL_MASK));
         Menu_Medicine_Item_Query.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, Event.CTRL_MASK));
@@ -165,7 +194,17 @@ public class StaffMainFrame extends JFrame {
         Menu_Client_Item_Update.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, Event.ALT_MASK));
         Menu_Client_Item_Query.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, Event.ALT_MASK));
         Menu_Client_Item_Delete.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, Event.ALT_MASK));
+        Menu_Ledger_Item_Query.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, Event.ENTER));
+        Menu_Ledger_Item_Query.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, Event.CTRL_MASK));
+        Menu_Person_Query_Info.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, Event.CTRL_MASK));
+        Menu_Person_Update_Info.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, Event.CTRL_MASK));
+        Menu_Person_Update_Word.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, Event.CTRL_MASK));
+        Menu_Person_Logout.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, Event.CTRL_MASK));
         Menu_About_Item_Detail.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.Event.CTRL_MASK));
+        Menu_Staff_Item_Add.addActionListener(new AddStaffAction());
+        Menu_Staff_Item_Query.addActionListener(new SearchStaffAction());
+        Menu_Staff_Item_Depart.addActionListener(new DepartStaffAction());
+        Menu_Staff_Item_Delete.addActionListener(new DeleteStaffAction());
         Menu_Medicine_Item_Add.addActionListener(new AddMedicineAction());
         Menu_Medicine_Item_Update.addActionListener(new UpdateMedicineAction());
         Menu_Medicine_Item_Query.addActionListener(new SearchMedicineAction());
@@ -178,58 +217,91 @@ public class StaffMainFrame extends JFrame {
         Menu_Client_Item_Update.addActionListener(new UpdateClientAction());
         Menu_Client_Item_Query.addActionListener(new QueryClientAction());
         Menu_Client_Item_Delete.addActionListener(new DeleteClientAction());
+        Menu_Ledger_Item_Query.addActionListener(new LookLedgerAction());
+        Menu_Person_Query_Info.addActionListener(new PersonInfoAction());
+        Menu_Person_Update_Info.addActionListener(new UpdateInfoAction());
+        Menu_Person_Update_Word.addActionListener(new UpdateWordAction());
+        Menu_Person_Logout.addActionListener(new LogoutAction());
         Menu_About_Item_Detail.addActionListener(new AboutDetailAction());
 
-        /**
-         * @Description: 按钮
-         */
-        add(Button_Purchase);
-        add(Button_Sale);
-        add(Button_Retail);
-        add(Button_Stock);
-        add(Button_Person);
-        int X = 50, Y_FIRST = 120, Y_DISTANCE = 100;
-        Button_Purchase.setBounds(X, Y_FIRST, 150, 50);
-        Button_Sale.setBounds(X, Y_FIRST + 1 * Y_DISTANCE, 150, 50);
-        Button_Retail.setBounds(X, Y_FIRST + 2 * Y_DISTANCE, 150, 50);
-        Button_Stock.setBounds(X, Y_FIRST + 3 * Y_DISTANCE, 150, 50);
-        Button_Person.setBounds(X, Y_FIRST + 4 * Y_DISTANCE, 150, 50);
-        Button_Purchase.setIcon(PurchaseIcon);
-        Button_Sale.setIcon(SaleIcon);
-        Button_Retail.setIcon(RetailIcon);
-        Button_Stock.setIcon(ShockIcon);
-        Button_Person.setIcon(PersonIcon);
-        Button_Purchase.setOpaque(false);
-        Button_Sale.setOpaque(false);
-        Button_Retail.setOpaque(false);
-        Button_Stock.setOpaque(false);
-        Button_Person.setOpaque(false);
-        Button_Purchase.setFont(Button_Font);
-        Button_Sale.setFont(Button_Font);
-        Button_Retail.setFont(Button_Font);
-        Button_Stock.setFont(Button_Font);
-        Button_Person.setFont(Button_Font);
-        Button_Purchase.setForeground(Color.BLACK);
-        Button_Sale.setForeground(Color.BLACK);
-        Button_Retail.setForeground(Color.BLACK);
-        Button_Stock.setForeground(Color.BLACK);
-        Button_Person.setForeground(Color.BLACK);
-        Button_Purchase.setBorder(BorderFactory.createRaisedBevelBorder());
-        Button_Sale.setBorder(BorderFactory.createRaisedBevelBorder());
-        Button_Retail.setBorder(BorderFactory.createRaisedBevelBorder());
-        Button_Stock.setBorder(BorderFactory.createRaisedBevelBorder());
-        Button_Person.setBorder(BorderFactory.createRaisedBevelBorder());
-        Button_Purchase.addActionListener(new PurchaseAction());
-        Button_Sale.addActionListener(new SaleAction());
-        Button_Retail.addActionListener(new RetailAction());
-        Button_Stock.addActionListener(new StockAction());
-        Button_Person.addActionListener(new PersonAction());
-
-        /**
-         * @Description: 时间
-         */
         LayeredPanel.add(TimePanel);
         TimePanel.setLocation(this.getWidth() - TimePanel.getWidth() - 5, this.getHeight() - TimePanel.getHeight() - 40);
+    }
+
+    /**
+     * @Description: 增加职员
+     */
+    class AddStaffAction implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            add(new InnerAddStaffFrame());
+        }
+    }
+
+    /**
+     * @Description: 查询职员
+     */
+    class SearchStaffAction implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            add(new InnerSearchStaffFrame());
+        }
+    }
+
+    /**
+     * @Description: 职员离职
+     */
+    class DepartStaffAction implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String sid = JOptionPane.showInputDialog("请输入离职职员的编号");
+            if (sid.length() < 8 || sid.length() > 10) {
+                JOptionPane.showMessageDialog(null, "职员编号应该在8~10位之间", "Staff id Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            for (int i = 0; i < sid.length(); i++) {
+                if (!Character.isDigit(sid.charAt(i))) {
+                    JOptionPane.showMessageDialog(null, "职员编号非法", "Staff id Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            }
+            int Sid = Integer.valueOf(sid);
+            StaffService staffService = new StaffService();
+            if (staffService.queryStaffByIdService(Sid) == null) {
+                JOptionPane.showMessageDialog(null, "职员不存在", "Staff exist Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            staffService.departureService(Sid);
+            JOptionPane.showMessageDialog(null, "设置职员离职成功", "Success ", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    /**
+     * @Description: 删除职员
+     */
+    class DeleteStaffAction implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String sid = JOptionPane.showInputDialog("请输入离职职员的编号");
+            if (sid.length() < 8 || sid.length() > 10) {
+                JOptionPane.showMessageDialog(null, "职员编号应该在8~10位之间", "Staff id Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            for (int i = 0; i < sid.length(); i++) {
+                if (!Character.isDigit(sid.charAt(i))) {
+                    JOptionPane.showMessageDialog(null, "职员编号非法", "Staff id Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            }
+            int Sid = Integer.valueOf(sid);
+            StaffService staffService = new StaffService();
+            if (staffService.queryStaffByIdService(Sid) == null) {
+                JOptionPane.showMessageDialog(null, "职员不存在", "Staff exist Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            staffService.deleteStaffService(Sid);
+            JOptionPane.showMessageDialog(null, "删除职员成功", "Success ", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     /**
@@ -465,64 +537,62 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 关于
+     * @Description: 查看账本
+     */
+    class LookLedgerAction implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            add(new InnerLedgerFrame());
+        }
+    }
+
+    /**
+     * @Description: 个人信息
+     */
+    class PersonInfoAction implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            add(new InnerAdminInfoFrame(uid));
+        }
+    }
+
+    /**
+     * @Description: 修改信息
+     */
+    class UpdateInfoAction implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            add(new InnerUpdateAdminInfoFrame(uid));
+        }
+    }
+
+    /**
+     * @Description: 修改密码
+     */
+    class UpdateWordAction implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            add(new InnerUpdateAdminWordFrame(uid));
+        }
+    }
+
+    /**
+     * @Description: 退出登录
+     */
+    class LogoutAction implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            setVisible(false);
+        }
+    }
+
+    /**
+     * @Description: 关于详情
      */
     class AboutDetailAction implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             new AboutDialogFrame();
-        }
-    }
-
-    /**
-     * @Description: 进货
-     */
-    class PurchaseAction implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            InnerPurchaseFrame innerPurchaseFrame = new InnerPurchaseFrame(sid);
-            add(innerPurchaseFrame.InnerPurchaseMainFrame);
-        }
-    }
-
-    /**
-     * @Description: 批发
-     */
-    class SaleAction implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            InnerSaleFrame innerSaleFrame = new InnerSaleFrame(sid);
-            add(innerSaleFrame.InnerSaleMainFrame);
-        }
-    }
-
-    /**
-     * @Description: 零售
-     */
-    class RetailAction implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            add(new InnerRetailFrame(sid));
-        }
-    }
-
-    /**
-     * @Description: 库存
-     */
-    class StockAction implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            new InnerStockFrame(DesktopPane);
-        }
-    }
-
-    /**
-     * @Description: 个人
-     */
-    class PersonAction implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            add(new InnerStaffFrame(sid, DesktopPane));
         }
     }
 
