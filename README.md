@@ -46,7 +46,7 @@ DataDesign
 
 将项目导入到IDE中， 运行Application即可，以下是测试账号：
 
-|   属性   | username  | password |
+|   角色   | username  | password |
 | :------: | :-------: | :------: |
 |  Admin  | Khighness |  111111  |
 | Staff |  南宫羽   |  333333  |
