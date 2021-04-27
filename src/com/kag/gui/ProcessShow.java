@@ -47,7 +47,7 @@ public class ProcessShow extends JFrame{
         setVisible(true);
 
         // 模拟延时操作进度
-        Timer timer = new Timer(20, new ActionListener() {
+        Timer timer = new Timer(10, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentProgress++;
