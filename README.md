@@ -36,7 +36,9 @@ DataDesign
 
 ## 数据库设计
 
-![SQL一览](sql/SQL一览.png)
+<p align="center">
+<img src="./sql/SQL一览.png" alt="">
+</p>
 
 
 
@@ -51,7 +53,9 @@ DataDesign
 |  Admin  | Khighness |  111111  |
 | Staff |  南宫羽   |  333333  |
 
-![运行截图](sql/运行截图.png)
+<p align="center">
+<img src="./sql/运行截图.png" alt="">
+</p>
 
 
 
