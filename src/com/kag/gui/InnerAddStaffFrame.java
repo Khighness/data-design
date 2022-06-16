@@ -13,9 +13,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @Description: 内部添加职员界面
- * @Author: 陈子康
- * @Date: 2020/5/22
+ * @apiNote 内部添加职员界面
+ * @author KHighness
+ * @since 2020/5/22
  */
 public class InnerAddStaffFrame extends JInternalFrame {
 
@@ -60,7 +60,7 @@ public class InnerAddStaffFrame extends JInternalFrame {
     }
 
     /**
-     * @Description: 设置窗口背景
+     * @apiNote 设置窗口背景
      */
     private void initFrameBackground() {
         ContentPanel.setOpaque(false);
@@ -71,7 +71,7 @@ public class InnerAddStaffFrame extends JInternalFrame {
     }
 
     /**
-     * @Description: 设置窗口属性
+     * @apiNote 设置窗口属性
      */
     private void initFrameProperty() {
         setBounds(300, 50, BackIcon.getIconWidth(), BackIcon.getIconHeight());
@@ -85,7 +85,7 @@ public class InnerAddStaffFrame extends JInternalFrame {
     }
 
     /**
-     * @Description: 设置窗口组件
+     * @apiNote 设置窗口组件
      */
     private void initFrameComponent() {
         add(Label_Sid);
@@ -192,7 +192,7 @@ public class InnerAddStaffFrame extends JInternalFrame {
     }
 
     /**
-     * @Description: 完成注册
+     * @apiNote 完成注册
      */
     class AddStaffFinishAction implements ActionListener {
         @Override
@@ -268,7 +268,7 @@ public class InnerAddStaffFrame extends JInternalFrame {
     }
 
     /**
-     * @Description: 返回操作
+     * @apiNote 返回操作
      */
     class AddStaffReturnAction implements ActionListener {
         int sid = 20200101;

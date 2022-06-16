@@ -5,9 +5,9 @@ import com.kag.entity.Client;
 import java.util.List;
 
 /**
- * @Description: 客户持久层
- * @Author: 陈子康
- * @Date: 2020/5/21
+ * @apiNote 客户持久层
+ * @author KHighness
+ * @since 2020/5/21
  */
 public interface ClientDao {
 

@@ -6,9 +6,9 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 /**
- * @Description: 内部个人界面
- * @Author: 陈子康
- * @Date: 2020/5/25
+ * @apiNote 内部个人界面
+ * @author KHighness
+ * @since 2020/5/25
  */
 public class InnerStaffFrame extends JInternalFrame {
 

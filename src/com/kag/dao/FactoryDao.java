@@ -5,9 +5,9 @@ import com.kag.entity.Factory;
 import java.util.List;
 
 /**
- * @Description: 生产厂家持久层
- * @Author: 陈子康
- * @Date: 2020/5/21
+ * @apiNote 生产厂家持久层
+ * @author KHighness
+ * @since 2020/5/21
  */
 public interface FactoryDao {
 

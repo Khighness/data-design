@@ -1,7 +1,7 @@
 package com.kag.gui;
 
 import com.kag.common.ColorUtil;
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 import com.kag.entity.Medicine;
 import com.kag.service.MedicineService;
 
@@ -14,9 +14,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @Description: 内部修改药品界面
- * @Author: 陈子康
- * @Date: 2020/5/22
+ * @apiNote 内部修改药品界面
+ * @author KHighness
+ * @since 2020/5/22
  */
 public class InnerUpdateMedicineFrame extends JInternalFrame {
 
@@ -308,7 +308,7 @@ public class InnerUpdateMedicineFrame extends JInternalFrame {
             try {
                 ProduceDate = simpleDateFormat.parse(produceDate);
             } catch (ParseException ex) {
-                ExceptUtil.printException(ex);
+                ExceptionUtil.printException(ex);
             }
 
             medicine.setMedicineName(medicineName);

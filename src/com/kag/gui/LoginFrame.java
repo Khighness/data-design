@@ -1,14 +1,7 @@
 package com.kag.gui;
 
-
-/**
- * @Description: 登录界面
- * @Author: 陈子康
- * @Date: 2020/4/29
- */
-
 import com.kag.service.LoginService;
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 import com.kag.service.StaffService;
 import com.kag.service.UserService;
 
@@ -21,9 +14,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+/**
+ * @apiNote 登录界面
+ * @author KHighness
+ * @since 2020/4/29
+ */
 public class LoginFrame extends JFrame {
 
-    private Logger logger = Logger.getLogger("LoginFrame");
+    private final Logger logger = Logger.getLogger("LoginFrame");
 
     /**
      * @LoginBackPane: 画板层
@@ -67,13 +65,13 @@ public class LoginFrame extends JFrame {
     private final static String SystemLogoPath = "img/SysLogo.png";
 
     /**
-     * @Description: 处理拖动窗口事件
+     * @apiNote 处理拖动窗口事件
      */
     private int xOld = 0;
     private int yOld = 0;
 
     /**
-     * @Description: 登陆
+     * @apiNote 登陆
      */
     class LoginSuccessAction implements ActionListener {
         @Override
@@ -113,7 +111,7 @@ public class LoginFrame extends JFrame {
     }
 
     /**
-     * @Description: 注册
+     * @apiNote 注册
      */
     class RegisterAction implements ActionListener {
         @Override
@@ -128,7 +126,7 @@ public class LoginFrame extends JFrame {
     }
 
     /**
-     * @Description: 取消登录
+     * @apiNote 取消登录
      */
     class LoginCancelAction implements ActionListener {
         @Override
@@ -138,7 +136,7 @@ public class LoginFrame extends JFrame {
             System.exit(0);
         }
     }
-    
+
     public LoginFrame() throws IOException {
         super();
         DraggableFrame();
@@ -147,7 +145,7 @@ public class LoginFrame extends JFrame {
     }
 
     /**
-     * @Description: 实现窗口可以随意拖动
+     * @apiNote 实现窗口可以随意拖动
      * @throws IOException
      */
     private void DraggableFrame() throws IOException {
@@ -173,7 +171,7 @@ public class LoginFrame extends JFrame {
     }
 
     /**
-     * @Description: 贴图
+     * @apiNote 贴图
      */
     private void InitImageFrame() throws IOException {
         BufferedImage BackImage = ImageIO.read(new FileInputStream(BackImagePath));
@@ -208,7 +206,7 @@ public class LoginFrame extends JFrame {
     }
 
     /**
-     * @Description: 初始化整个登录界面
+     * @apiNote 初始化整个登录界面
      */
     private void InitLoginFrame() {
         Font Font_Label = new Font("微软雅黑", Font.BOLD, 18);
@@ -256,13 +254,13 @@ public class LoginFrame extends JFrame {
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         } catch (ClassNotFoundException e1) {
-            ExceptUtil.printException(e1);
+            ExceptionUtil.printException(e1);
         } catch (UnsupportedLookAndFeelException e2) {
-            ExceptUtil.printException(e2);
+            ExceptionUtil.printException(e2);
         } catch (InstantiationException e3) {
-            ExceptUtil.printException(e3);
+            ExceptionUtil.printException(e3);
         } catch (IllegalAccessException e4) {
-            ExceptUtil.printException(e4);
+            ExceptionUtil.printException(e4);
         }
     }
 }

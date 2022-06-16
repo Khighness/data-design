@@ -14,9 +14,9 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 
 /**
- * @Description: 内部进货界面
- * @Author: 陈子康
- * @Date: 2020/5/25
+ * @apiNote 内部进货界面
+ * @author KHighness
+ * @since 2020/5/25
  */
 public class InnerPurchaseFrame {
 
@@ -187,7 +187,7 @@ public class InnerPurchaseFrame {
     }
 
     /**
-     * @Description: 进货(PurchaseDetail)
+     * @apiNote 进货(PurchaseDetail)
      * 1) 添加进货子记录
      * 2）更新药品库存
      */

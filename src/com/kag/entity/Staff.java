@@ -4,9 +4,9 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * @Description: 职员实体层
- * @Author: 陈子康
- * @Date: 2020/5/6
+ * @apiNote 职员实体层
+ * @author KHighness
+ * @since 2020/5/6
  */
 public class Staff {
 

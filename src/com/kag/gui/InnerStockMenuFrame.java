@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * @Description: 内部库存查询菜单
- * @Author: 陈子康
- * @Date: 2020/5/26
+ * @apiNote 内部库存查询菜单
+ * @author KHighness
+ * @since 2020/5/26
  */
 public class InnerStockMenuFrame extends JInternalFrame {
 

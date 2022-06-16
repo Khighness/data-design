@@ -3,9 +3,9 @@ package com.kag.entity;
 import java.util.*;
 
 /**
- * @Description: 批发（主表）实体层
- * @Author: 陈子康
- * @Date: 2020/5/19
+ * @apiNote 批发（主表）实体层
+ * @author KHighness
+ * @since 2020/5/19
  */
 public class SaleMain {
 

@@ -1,21 +1,19 @@
 package com.kag.dao;
 
 import com.kag.entity.Staff;
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 import com.kag.common.MysqlUtil;
 import com.kag.common.TimeUtil;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description: 用户持久层接
- * @Author: 陈子康
- * @Date: 2020/5/6
+ * @apiNote 用户持久层接
+ * @author KHighness
+ * @since 2020/5/6
  */
 public class StaffDaoImpl implements StaffDao {
 
@@ -44,7 +42,7 @@ public class StaffDaoImpl implements StaffDao {
             }
         } catch (SQLException e) {
             logger.warn("添加职员发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -77,7 +75,7 @@ public class StaffDaoImpl implements StaffDao {
             logger.info("查询所有职员信息");
         } catch (SQLException e) {
             logger.warn("查询所有职员信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -110,7 +108,7 @@ public class StaffDaoImpl implements StaffDao {
             logger.info("查询编号为" + sid + "的职员信息");
         } catch (SQLException e) {
             logger.warn("查询编号为" + sid + "的职员信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -144,7 +142,7 @@ public class StaffDaoImpl implements StaffDao {
             logger.info("查询姓名为" + staffName + "的职员信息");
         } catch (SQLException e) {
             logger.warn("查询姓名为" + staffName + "的职员信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         }finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -168,7 +166,7 @@ public class StaffDaoImpl implements StaffDao {
             logger.info("查询姓名为" + staffName + "的职员编号");
         } catch (SQLException e) {
             logger.warn("查询姓名为" + staffName + "的职员编号发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -200,7 +198,7 @@ public class StaffDaoImpl implements StaffDao {
             }
         } catch (SQLException e) {
             logger.warn("更新编号为" + sid + "的职员信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -223,7 +221,7 @@ public class StaffDaoImpl implements StaffDao {
             }
         } catch (SQLException e) {
             logger.warn("删除编号为" + sid + "的职员发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -246,7 +244,7 @@ public class StaffDaoImpl implements StaffDao {
             }
         } catch (SQLException e) {
             logger.warn("设置职员离职发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);

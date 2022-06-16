@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * @Description: 随机密码生成工具类
- * @Author: 陈子康
- * @Date: 2020/5/8
+ * @apiNote 随机密码生成工具类
+ * @author KHighness
+ * @since 2020/5/8
  */
 public class RandomPasswordGenerator {
 

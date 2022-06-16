@@ -16,9 +16,9 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 
 /**
- * @Description: 内部批发界面
- * @Author: 陈子康
- * @Date: 2020/5/25
+ * @apiNote 内部批发界面
+ * @author KHighness
+ * @since 2020/5/25
  */
 public class InnerSaleFrame {
 
@@ -113,7 +113,7 @@ public class InnerSaleFrame {
     }
 
     /**
-     * @Description: 批发(SaleMain)
+     * @apiNote 批发(SaleMain)
      * 1) 添加批发主记录
      */
     class SaleMainSureAction implements ActionListener {
@@ -172,7 +172,7 @@ public class InnerSaleFrame {
     }
 
     /**
-     * @Description: 批发(saleMain)
+     * @apiNote 批发(saleMain)
      * 1) 更新交易金额
      * 2) 添加账本记录
      */
@@ -191,7 +191,7 @@ public class InnerSaleFrame {
     }
 
     /**
-     * @Description: 批发(SaleDetail)
+     * @apiNote 批发(SaleDetail)
      * 1) 添加批发子记录
      * 2) 更新药品库存
      */

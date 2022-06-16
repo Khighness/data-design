@@ -5,9 +5,9 @@ import com.kag.entity.Stock;
 import java.util.List;
 
 /**
- * @Description: 库存持久层
- * @Author: 陈子康
- * @Date: 2020/5/22
+ * @apiNote 库存持久层
+ * @author KHighness
+ * @since 2020/5/22
  */
 public interface StockDao {
 

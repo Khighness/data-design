@@ -8,9 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * @Description: 进货对话框
- * @Author: 陈子康
- * @Date: 2020/5/25
+ * @apiNote 进货对话框
+ * @author KHighness
+ * @since 2020/5/25
  */
 public class PurchaseDetailDialog extends JDialog {
 

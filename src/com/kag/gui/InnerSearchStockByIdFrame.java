@@ -14,9 +14,9 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 
 /**
- * @Description: 内部库存查询界面(根据ID)
- * @Author: 陈子康
- * @Date: 2020/5/26
+ * @apiNote 内部库存查询界面(根据ID)
+ * @author KHighness
+ * @since 2020/5/26
  */
 public class InnerSearchStockByIdFrame extends JInternalFrame{
 

@@ -14,9 +14,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
- * @Description: 内部药品查询界面(根据ID或者药名)
- * @Author: 陈子康
- * @Date: 2020/5/26
+ * @apiNote 内部药品查询界面(根据ID或者药名)
+ * @author KHighness
+ * @since 2020/5/26
  */
 public class InnerSearchStaffFrame extends JInternalFrame {
 

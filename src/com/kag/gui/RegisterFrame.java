@@ -9,12 +9,12 @@ import java.awt.event.*;
 import java.io.IOException;
 
 import com.kag.common.CheckUtil;
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 
 /**
- * @Description: 注册界面
- * @Author: 陈子康
- * @Date: 2020/5/2
+ * @apiNote 注册界面
+ * @author KHighness
+ * @since 2020/5/2
  */
 public class RegisterFrame extends JFrame {
 
@@ -50,7 +50,7 @@ public class RegisterFrame extends JFrame {
     }
 
     /**
-     * @Description: 设置窗口图片
+     * @apiNote 设置窗口图片
      */
     private void initFrameBackground() {
         /**
@@ -72,7 +72,7 @@ public class RegisterFrame extends JFrame {
     }
 
     /**
-     * @Description: 设置窗口属性
+     * @apiNote 设置窗口属性
      */
     private void initFrameProperty() {
         setTitle("用户注册");
@@ -82,24 +82,24 @@ public class RegisterFrame extends JFrame {
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         } catch (ClassNotFoundException e1) {
-            ExceptUtil.printException(e1);
+            ExceptionUtil.printException(e1);
         } catch (UnsupportedLookAndFeelException e2) {
-            ExceptUtil.printException(e2);
+            ExceptionUtil.printException(e2);
         } catch (InstantiationException e3) {
-            ExceptUtil.printException(e3);
+            ExceptionUtil.printException(e3);
         } catch (IllegalAccessException e4) {
-            ExceptUtil.printException(e4);
+            ExceptionUtil.printException(e4);
         }
     }
 
     /**
-     * @Description: 设置窗口部件
+     * @apiNote 设置窗口部件
      */
     private void initFrameComponent() {
         setLayout(null);
 
         /**
-         * @Description: JLabel
+         * @apiNote JLabel
          */
         add(Label_Username);
         add(Label_Password);
@@ -122,7 +122,7 @@ public class RegisterFrame extends JFrame {
         Label_PhoneNumber.setBounds(new Rectangle(100, Y_FIRST + 5 * LABEL_Y_DISTANCE, 100, 20));
 
         /**
-         * @Description: JTextField
+         * @apiNote JTextField
          */
         add(Text_Username);
         add(Text_Password);
@@ -153,7 +153,7 @@ public class RegisterFrame extends JFrame {
         Text_PhoneNumber.setOpaque(false);
 
         /**
-         * @Description: JButton
+         * @apiNote JButton
          */
         add(Button_Finish);
         add(Button_Return);
@@ -178,14 +178,14 @@ public class RegisterFrame extends JFrame {
     }
 
     /**
-     * @Description: 完成注册
+     * @apiNote 完成注册
      */
     class RegisterFinishAction implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
 
             /**
-             * @Description: 判断输入是否合法
+             * @apiNote 判断输入是否合法
              */
             String username = Text_Username.getText();
             if ( (username.equals("")) || (username.length() > 10) ){
@@ -230,7 +230,7 @@ public class RegisterFrame extends JFrame {
             }
 
             /**
-             * @Description: 合法，添加到数据库
+             * @apiNote 合法，添加到数据库
              */
             UserService userService = new UserService();
             User user = new User(0, username, password, age, sex, signature, phoneNumber);
@@ -241,7 +241,7 @@ public class RegisterFrame extends JFrame {
     }
 
     /**
-     * @Description: 返回登陆
+     * @apiNote 返回登陆
      */
     class ReturnLoginAction implements ActionListener {
         @Override

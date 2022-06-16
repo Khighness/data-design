@@ -11,9 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @Description: 内部修改登录密码界面
- * @Author: 陈子康
- * @Date: 2020/5/30
+ * @apiNote 内部修改登录密码界面
+ * @author KHighness
+ * @since 2020/5/30
  */
 public class InnerUpdateAdminWordFrame extends JInternalFrame{
 

@@ -4,6 +4,11 @@ import com.kag.dao.MedicineDao;
 import com.kag.dao.MedicineDaoImpl;
 import com.kag.entity.Medicine;
 
+/**
+ * @apiNote 登录服务层
+ * @author KHighness
+ * @since 2020/4/24
+ */
 public class MedicineService {
 
     private MedicineDao medicineDao = new MedicineDaoImpl();

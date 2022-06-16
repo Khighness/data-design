@@ -3,9 +3,9 @@ package com.kag.entity;
 import java.util.Objects;
 
 /**
- * @Description: 用户实体层
- * @Author: 陈子康
- * @Date: 2020/5/2
+ * @apiNote 用户实体层
+ * @author KHighness
+ * @since 2020/5/2
  */
 public class User {
 

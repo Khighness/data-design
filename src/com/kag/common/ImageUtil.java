@@ -11,9 +11,9 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
- * @Description: 图片工具类
- * @Author: 陈子康
- * @Date: 2020/4/30
+ * @apiNote 图片工具类
+ * @author KHighness
+ * @since 2020/4/30
  */
 public class ImageUtil {
 

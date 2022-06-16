@@ -7,9 +7,9 @@ import com.kag.entity.Ledger;
 import java.util.List;
 
 /**
- * @Description: 账本服务层
- * @Author: 陈子康
- * @Date: 2020/5/24
+ * @apiNote 账本服务层
+ * @author KHighness
+ * @since 2020/5/24
  */
 public class LedgerService {
 

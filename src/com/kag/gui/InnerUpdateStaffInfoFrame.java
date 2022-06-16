@@ -2,7 +2,7 @@ package com.kag.gui;
 
 import com.kag.common.CheckUtil;
 import com.kag.common.ColorUtil;
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 import com.kag.entity.Staff;
 import com.kag.service.StaffService;
 
@@ -15,9 +15,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @Description: 内部更改个人信息界面
- * @Author: 陈子康
- * @Date: 2020/5/27
+ * @apiNote 内部更改个人信息界面
+ * @author KHighness
+ * @since 2020/5/27
  */
 public class InnerUpdateStaffInfoFrame extends JInternalFrame{
 
@@ -180,7 +180,7 @@ public class InnerUpdateStaffInfoFrame extends JInternalFrame{
                         (String) ComboBox_Month.getSelectedItem() + '-' +
                         (String) ComboBox_Day.getSelectedItem());
             } catch (ParseException ex) {
-                ExceptUtil.printException(ex);
+                ExceptionUtil.printException(ex);
             }
             String address = Text_Address.getText();
             String phoneNumber = Text_PhoneNumber.getText();

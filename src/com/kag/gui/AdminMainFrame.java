@@ -1,16 +1,14 @@
 package com.kag.gui;
 
 import com.kag.common.ColorUtil;
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 import com.kag.entity.Client;
 import com.kag.entity.Factory;
 import com.kag.entity.Medicine;
-import com.kag.entity.Staff;
 import com.kag.service.ClientService;
 import com.kag.service.FactoryService;
 import com.kag.service.MedicineService;
 import com.kag.service.StaffService;
-import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,9 +16,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @Description: 管理员主界面
- * @Author: 陈子康
- * @Date: 2020/5/20
+ * @apiNote 管理员主界面
+ * @author KHighness
+ * @since 2020/5/20
  */
 public class AdminMainFrame extends JFrame {
 
@@ -76,7 +74,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 设置窗口图片
+     * @apiNote 设置窗口图片
      */
     private void initFrameBackground() {
         BackLabel.setBounds(0, 0, BackIcon.getIconWidth(), BackIcon.getIconHeight());
@@ -92,7 +90,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 设置窗口属性
+     * @apiNote 设置窗口属性
      */
     private void initFrameProperty() {
         setTitle("药品进销存管理系统");
@@ -107,13 +105,13 @@ public class AdminMainFrame extends JFrame {
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         } catch (ClassNotFoundException e1) {
-            ExceptUtil.printException(e1);
+            ExceptionUtil.printException(e1);
         } catch (UnsupportedLookAndFeelException e2) {
-            ExceptUtil.printException(e2);
+            ExceptionUtil.printException(e2);
         } catch (InstantiationException e3) {
-            ExceptUtil.printException(e3);
+            ExceptionUtil.printException(e3);
         } catch (IllegalAccessException e4) {
-            ExceptUtil.printException(e4);
+            ExceptionUtil.printException(e4);
         }
     }
 
@@ -229,7 +227,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 增加职员
+     * @apiNote 增加职员
      */
     class AddStaffAction implements ActionListener {
         @Override
@@ -239,7 +237,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 查询职员
+     * @apiNote 查询职员
      */
     class SearchStaffAction implements ActionListener {
         @Override
@@ -249,7 +247,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 职员离职
+     * @apiNote 职员离职
      */
     class DepartStaffAction implements ActionListener {
         @Override
@@ -277,7 +275,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 删除职员
+     * @apiNote 删除职员
      */
     class DeleteStaffAction implements ActionListener {
         @Override
@@ -305,7 +303,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 增加药品
+     * @apiNote 增加药品
      */
     class AddMedicineAction implements ActionListener {
         @Override
@@ -315,7 +313,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 修改药品
+     * @apiNote 修改药品
      */
     class UpdateMedicineAction implements ActionListener {
         @Override
@@ -343,7 +341,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 搜索药品
+     * @apiNote 搜索药品
      */
     class SearchMedicineAction implements ActionListener {
         @Override
@@ -353,7 +351,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 删除药品
+     * @apiNote 删除药品
      */
     class DeleteMedicineAction implements ActionListener {
         @Override
@@ -382,7 +380,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 增加厂家
+     * @apiNote 增加厂家
      */
     class AddFactoryAction implements ActionListener{
         @Override
@@ -392,7 +390,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 修改厂家
+     * @apiNote 修改厂家
      */
     class UpdateFactoryAction implements ActionListener {
         @Override
@@ -420,7 +418,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 查询厂家
+     * @apiNote 查询厂家
      */
     class QueryFactoryAction implements ActionListener {
         @Override
@@ -430,7 +428,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 删除厂家
+     * @apiNote 删除厂家
      */
     class DeleteFactoryAction implements ActionListener {
         @Override
@@ -459,7 +457,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 增加客户
+     * @apiNote 增加客户
      */
     class AddClientAction implements ActionListener {
         @Override
@@ -469,7 +467,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 修改客户
+     * @apiNote 修改客户
      */
     class UpdateClientAction implements ActionListener {
         @Override
@@ -498,7 +496,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 查询客户
+     * @apiNote 查询客户
      */
     class QueryClientAction implements  ActionListener {
         @Override
@@ -508,7 +506,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 删除客户
+     * @apiNote 删除客户
      */
     class DeleteClientAction implements ActionListener {
         @Override
@@ -537,7 +535,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 查看账本
+     * @apiNote 查看账本
      */
     class LookLedgerAction implements ActionListener {
         @Override
@@ -547,7 +545,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 个人信息
+     * @apiNote 个人信息
      */
     class PersonInfoAction implements ActionListener {
         @Override
@@ -557,7 +555,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 修改信息
+     * @apiNote 修改信息
      */
     class UpdateInfoAction implements ActionListener {
         @Override
@@ -567,7 +565,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 修改密码
+     * @apiNote 修改密码
      */
     class UpdateWordAction implements ActionListener {
         @Override
@@ -577,7 +575,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 退出登录
+     * @apiNote 退出登录
      */
     class LogoutAction implements ActionListener {
         @Override
@@ -587,7 +585,7 @@ public class AdminMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 关于详情
+     * @apiNote 关于详情
      */
     class AboutDetailAction implements ActionListener {
         @Override

@@ -1,6 +1,6 @@
 package com.kag.gui;
 
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 import com.kag.entity.Client;
 import com.kag.entity.Factory;
 import com.kag.entity.Medicine;
@@ -14,9 +14,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @Description: 职员主界面
- * @Author: 陈子康
- * @Date: 2020/5/20
+ * @apiNote 职员主界面
+ * @author KHighness
+ * @since 2020/5/20
  */
 public class StaffMainFrame extends JFrame {
 
@@ -73,7 +73,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 设置窗口图片
+     * @apiNote 设置窗口图片
      */
     private void initFrameBackground() {
         BackLabel.setBounds(0, 0, BackIcon.getIconWidth(), BackIcon.getIconHeight());
@@ -88,7 +88,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 设置窗口属性
+     * @apiNote 设置窗口属性
      */
     private void initFrameProperty() {
         setTitle("药品进销存管理系统");
@@ -103,20 +103,20 @@ public class StaffMainFrame extends JFrame {
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         } catch (ClassNotFoundException e1) {
-            ExceptUtil.printException(e1);
+            ExceptionUtil.printException(e1);
         } catch (UnsupportedLookAndFeelException e2) {
-            ExceptUtil.printException(e2);
+            ExceptionUtil.printException(e2);
         } catch (InstantiationException e3) {
-            ExceptUtil.printException(e3);
+            ExceptionUtil.printException(e3);
         } catch (IllegalAccessException e4) {
-            ExceptUtil.printException(e4);
+            ExceptionUtil.printException(e4);
         }
     }
 
     private void initFrameComponent() {
 
         /**
-         * @Description: 导航栏
+         * @apiNote 导航栏
          */
         Menu.setOpaque(false);
         Menu_Medicine.setFont(Font_Menu);
@@ -181,7 +181,7 @@ public class StaffMainFrame extends JFrame {
         Menu_About_Item_Detail.addActionListener(new AboutDetailAction());
 
         /**
-         * @Description: 按钮
+         * @apiNote 按钮
          */
         add(Button_Purchase);
         add(Button_Sale);
@@ -226,14 +226,14 @@ public class StaffMainFrame extends JFrame {
         Button_Person.addActionListener(new PersonAction());
 
         /**
-         * @Description: 时间
+         * @apiNote 时间
          */
         LayeredPanel.add(TimePanel);
         TimePanel.setLocation(this.getWidth() - TimePanel.getWidth() - 5, this.getHeight() - TimePanel.getHeight() - 40);
     }
 
     /**
-     * @Description: 增加药品
+     * @apiNote 增加药品
      */
     class AddMedicineAction implements ActionListener {
         @Override
@@ -243,7 +243,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 修改药品
+     * @apiNote 修改药品
      */
     class UpdateMedicineAction implements ActionListener {
         @Override
@@ -271,7 +271,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 搜索药品
+     * @apiNote 搜索药品
      */
     class SearchMedicineAction implements ActionListener {
         @Override
@@ -281,7 +281,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 删除药品
+     * @apiNote 删除药品
      */
     class DeleteMedicineAction implements ActionListener {
         @Override
@@ -310,7 +310,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 增加厂家
+     * @apiNote 增加厂家
      */
     class AddFactoryAction implements ActionListener{
         @Override
@@ -320,7 +320,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 修改厂家
+     * @apiNote 修改厂家
      */
     class UpdateFactoryAction implements ActionListener {
         @Override
@@ -348,7 +348,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 查询厂家
+     * @apiNote 查询厂家
      */
     class QueryFactoryAction implements ActionListener {
         @Override
@@ -358,7 +358,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 删除厂家
+     * @apiNote 删除厂家
      */
     class DeleteFactoryAction implements ActionListener {
         @Override
@@ -387,7 +387,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 增加客户
+     * @apiNote 增加客户
      */
     class AddClientAction implements ActionListener {
         @Override
@@ -397,7 +397,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 修改客户
+     * @apiNote 修改客户
      */
     class UpdateClientAction implements ActionListener {
         @Override
@@ -426,7 +426,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 查询客户
+     * @apiNote 查询客户
      */
     class QueryClientAction implements  ActionListener {
         @Override
@@ -436,7 +436,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 删除客户
+     * @apiNote 删除客户
      */
     class DeleteClientAction implements ActionListener {
         @Override
@@ -465,7 +465,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 关于
+     * @apiNote 关于
      */
     class AboutDetailAction implements ActionListener {
         @Override
@@ -475,7 +475,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 进货
+     * @apiNote 进货
      */
     class PurchaseAction implements ActionListener {
         @Override
@@ -486,7 +486,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 批发
+     * @apiNote 批发
      */
     class SaleAction implements ActionListener {
         @Override
@@ -497,7 +497,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 零售
+     * @apiNote 零售
      */
     class RetailAction implements ActionListener {
         @Override
@@ -507,7 +507,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 库存
+     * @apiNote 库存
      */
     class StockAction implements ActionListener {
         @Override
@@ -517,7 +517,7 @@ public class StaffMainFrame extends JFrame {
     }
 
     /**
-     * @Description: 个人
+     * @apiNote 个人
      */
     class PersonAction implements ActionListener {
         @Override

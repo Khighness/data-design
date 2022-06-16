@@ -1,22 +1,19 @@
 package com.kag.dao;
 
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 import com.kag.common.MysqlUtil;
 import com.kag.common.TimeUtil;
-import com.kag.entity.SaleDetail;
 import com.kag.entity.SaleMain;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.time.Period;
-import java.util.Calendar;
 
 /**
- * @Description: 批发（主表）持久层
- * @Author: 陈子康
- * @Date: 2020/5/22
+ * @apiNote 批发（主表）持久层
+ * @author KHighness
+ * @since 2020/5/22
  */
 public class SaleMainDaoImpl implements SaleMainDao{
 
@@ -44,7 +41,7 @@ public class SaleMainDaoImpl implements SaleMainDao{
             }
         } catch (SQLException e) {
             logger.warn("添加批发主记录发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -68,7 +65,7 @@ public class SaleMainDaoImpl implements SaleMainDao{
             }
         } catch (SQLException e) {
           logger.warn("更新批发交易金额发生异常");
-          ExceptUtil.printException(e);
+          ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);

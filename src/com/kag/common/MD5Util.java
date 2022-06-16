@@ -5,13 +5,13 @@ import java.security.MessageDigest;
 /**
  * @Author: KHighness
  * @Date: 2020/5/21 18:47
- * @Description: Md5加密工具
+ * @apiNote Md5加密工具
  */
 
 public class MD5Util {
 
     /**
-     * @Description: MD5加码 [生成32位md5码 ]
+     * @apiNote MD5加码 [生成32位md5码 ]
      */
     public static String string2MD5(String inStr) {
         MessageDigest md5 = null;
@@ -39,7 +39,7 @@ public class MD5Util {
     }
 
     /**
-     * @Description: 加密解密算法 [ 执行一次加密，两次解密 ]
+     * @apiNote 加密解密算法 [ 执行一次加密，两次解密 ]
      */
     public static String convertMD5(String inStr) {
         char[] a = inStr.toCharArray();

@@ -9,8 +9,8 @@ import java.util.Vector;
  * generator. However, The following class is a port of a Javascript credit card
  * number generator.
  *
- * @Author KHighness
- *
+ * @author KHighness
+ * @since 2020/4/30
  */
 public class RandomCreditCardNumberGenerator {
 
@@ -130,7 +130,7 @@ public class RandomCreditCardNumberGenerator {
                 isValid = true;
             }
         } catch (NumberFormatException e) {
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         }
         return isValid;
     }

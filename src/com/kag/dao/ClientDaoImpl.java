@@ -4,16 +4,14 @@ import com.kag.common.*;
 import com.kag.entity.Client;
 import org.apache.log4j.Logger;
 
-import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
- * @Description: 客户持久层
- * @Author: 陈子康
- * @Date: 2020/5/22
+ * @apiNote 客户持久层
+ * @author KHighness
+ * @since 2020/5/22
  */
 public class ClientDaoImpl implements ClientDao{
 
@@ -41,7 +39,7 @@ public class ClientDaoImpl implements ClientDao{
             }
         } catch (SQLException e) {
             logger.warn("添加客户发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -70,7 +68,7 @@ public class ClientDaoImpl implements ClientDao{
             }
         } catch (SQLException e) {
             logger.error("更新客户信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -101,7 +99,7 @@ public class ClientDaoImpl implements ClientDao{
             logger.info("查询所有客户信息");
         } catch (SQLException e)  {
             logger.warn("查询所有客户信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -133,7 +131,7 @@ public class ClientDaoImpl implements ClientDao{
             logger.info("查询编号为" + clientId + "的客户信息" );
         } catch (SQLException e) {
             logger.warn("查询编号为" + clientId + "的客户信息发生异常" );
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -165,7 +163,7 @@ public class ClientDaoImpl implements ClientDao{
             logger.info("查询姓名为" + clientName + "的客户信息");
         } catch (SQLException e) {
             logger.warn("查询姓名为" + clientName + "的客户信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -190,7 +188,7 @@ public class ClientDaoImpl implements ClientDao{
             }
         } catch (SQLException e) {
             logger.warn("删除编号为" + clientId + "的客户信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);

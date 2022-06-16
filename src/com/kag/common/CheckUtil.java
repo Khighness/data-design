@@ -1,18 +1,17 @@
 package com.kag.common;
 
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @Description: 检验工具类
- * @Author: 陈子康
- * @Date: 2020/5/7
+ * @apiNote 检验工具类
+ * @author KHighness
+ * @since 2020/5/7
  */
 public class CheckUtil {
 
     /**
-     * @Description: 校验银行卡卡号是否合法
+     * @apiNote 校验银行卡卡号是否合法
      * @param bankCard
      * @return 合法返回true，不合法返回false
      * 校验过程：
@@ -32,7 +31,7 @@ public class CheckUtil {
     }
 
     /**
-     * @Description: 从不含校验位的银行卡卡号采用 L U H M 校验算法获得校验位
+     * @apiNote 从不含校验位的银行卡卡号采用 L U H M 校验算法获得校验位
      * @param nonCheckCodeBankCard
      * @return
      */
@@ -56,7 +55,7 @@ public class CheckUtil {
     }
 
     /**
-     * @Description: 验证手机号码是否合法
+     * @apiNote 验证手机号码是否合法
      * @param telephone 需要验证的打手机号码
      * @return 合法返回true，不合法返回false
      * */

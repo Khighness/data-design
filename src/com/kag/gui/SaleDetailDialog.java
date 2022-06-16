@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * @Description: 批发对话框
- * @Author: 陈子康
- * @Date: 2020/5/25
+ * @apiNote 批发对话框
+ * @author KHighness
+ * @since 2020/5/25
  */
 public class SaleDetailDialog extends JDialog{
 

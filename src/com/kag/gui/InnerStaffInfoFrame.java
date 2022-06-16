@@ -1,6 +1,5 @@
 package com.kag.gui;
 
-import com.kag.common.ExceptUtil;
 import com.kag.entity.Staff;
 import com.kag.service.StaffService;
 
@@ -11,9 +10,9 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 
 /**
- * @Description: 内部个人信息界面
- * @Author: 陈子康
- * @Date: 2020/5/27
+ * @apiNote 内部个人信息界面
+ * @author KHighness
+ * @since 2020/5/27
  */
 public class InnerStaffInfoFrame extends JInternalFrame {
 

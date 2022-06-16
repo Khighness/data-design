@@ -1,8 +1,7 @@
 package com.kag.dao;
 
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 import com.kag.common.MysqlUtil;
-import com.kag.common.TimeUtil;
 import com.kag.entity.Factory;
 import org.apache.log4j.Logger;
 
@@ -11,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description: 生产厂家持久层
- * @Author: 陈子康
- * @Date: 2020/5/22
+ * @apiNote 生产厂家持久层
+ * @author KHighness
+ * @since 2020/5/22
  */
 public class FactoryDaoImpl implements FactoryDao {
 
@@ -40,7 +39,7 @@ public class FactoryDaoImpl implements FactoryDao {
             }
         } catch (SQLException e) {
             logger.warn("添加厂家发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -68,7 +67,7 @@ public class FactoryDaoImpl implements FactoryDao {
             }
         } catch (SQLException e) {
             logger.warn("更新编号为" + factoryId + "的厂家信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -98,7 +97,7 @@ public class FactoryDaoImpl implements FactoryDao {
             logger.info("查询所有厂家信息");
         } catch (SQLException e) {
             logger.warn("查询所有厂家信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -128,7 +127,7 @@ public class FactoryDaoImpl implements FactoryDao {
             logger.info("查询编号为" + factoryId + "的厂家信息");
         } catch (SQLException e) {
             logger.warn("查询编号为" + factoryId + "的厂家信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -159,7 +158,7 @@ public class FactoryDaoImpl implements FactoryDao {
             logger.info("查询名称为" + factoryName + "的厂家信息");
         } catch (SQLException e) {
             logger.warn("查询名称为" + factoryName + "的厂家信息");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -184,7 +183,7 @@ public class FactoryDaoImpl implements FactoryDao {
             }
         } catch (SQLException e) {
             logger.warn("删除编号为" + factoryId + "的厂家信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);

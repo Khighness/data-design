@@ -1,17 +1,16 @@
 package com.kag.dao;
 
 import com.kag.entity.User;
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 import com.kag.common.MysqlUtil;
-import com.kag.common.TimeUtil;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
 
 /**
- * @Description: 用户持久层
- * @Author: 陈子康
- * @Date: 2020/5/2
+ * @apiNote 用户持久层
+ * @author KHighness
+ * @since 2020/5/2
  */
 public class UserDaoImpl implements UserDao{
 
@@ -39,7 +38,7 @@ public class UserDaoImpl implements UserDao{
             }
         } catch (SQLException e) {
             logger.warn("用户注册发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -67,7 +66,7 @@ public class UserDaoImpl implements UserDao{
             }
         } catch (SQLException e) {
             logger.warn("用户信息更新发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -91,7 +90,7 @@ public class UserDaoImpl implements UserDao{
             }
         } catch (SQLException e) {
             logger.warn("用户密码更新发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -113,7 +112,7 @@ public class UserDaoImpl implements UserDao{
             logger.info("查询姓名为" + username + "的用户编号");
         } catch (SQLException e) {
             logger.warn("查询姓名为" + username + "的用户编号发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -145,7 +144,7 @@ public class UserDaoImpl implements UserDao{
             logger.info("查询编号为" + uid + "的用户");
         } catch (SQLException e) {
             logger.warn("查询编号为" + uid + "的用户发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);

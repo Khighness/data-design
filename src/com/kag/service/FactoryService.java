@@ -5,9 +5,9 @@ import com.kag.dao.FactoryDaoImpl;
 import com.kag.entity.Factory;
 
 /**
- * @Description: 厂家服务层
- * @Author: 陈子康
- * @Date: 2020/5/24
+ * @apiNote 厂家服务层
+ * @author KHighness
+ * @since 2020/5/24
  */
 public class FactoryService {
 

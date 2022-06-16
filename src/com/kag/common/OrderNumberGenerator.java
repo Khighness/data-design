@@ -6,9 +6,9 @@ import java.util.Random;
 import java.util.*;
 
 /**
- * @Description: 订单号生成工具类
- * @Author: 陈子康
- * @Date: 2020/4/30
+ * @apiNote 订单号生成工具类
+ * @author KHighness
+ * @since 2020/4/30
  */
 public class OrderNumberGenerator {
 
@@ -20,7 +20,7 @@ public class OrderNumberGenerator {
     private static final String RETAIL_CODE = "3";
 
     /**
-     * @Description: 生成时间串
+     * @apiNote 生成时间串
      */
     private static String getTimeString() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -28,7 +28,7 @@ public class OrderNumberGenerator {
     }
 
     /**
-     * @Description: 生成进货订单号
+     * @apiNote 生成进货订单号
      * 1、type[1位]：1（进货）
      * 2、time[10位]：时间戳（yyyyMMddHHmmss）
      * 3、fid[4位]：厂家ID取后4位
@@ -39,7 +39,7 @@ public class OrderNumberGenerator {
     }
 
     /**
-     * @Description: 生成批发订单号
+     * @apiNote 生成批发订单号
      * 1、type[1位]：2（批发）
      * 2、time[10位]：时间戳（yyyyMMddHHmmss）
      * 3、cid[4位]：客户ID取后4位
@@ -50,7 +50,7 @@ public class OrderNumberGenerator {
     }
 
     /**
-     * @Description: 生成零售订单号
+     * @apiNote 生成零售订单号
      * 1、type[1位]：3（零售）
      * 2、time[10位]：时间戳（yyyyMMddHHmmss）
      * 3、cid[4位]：客户ID取后4位

@@ -1,10 +1,8 @@
 package com.kag.dao;
 
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 import com.kag.common.MysqlUtil;
-import com.kag.common.TimeUtil;
 import com.kag.entity.Stock;
-import com.sun.org.apache.regexp.internal.RE;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -12,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description: 库存持久层
- * @Author: 陈子康
- * @Date: 2020/5/22
+ * @apiNote 库存持久层
+ * @author KHighness
+ * @since 2020/5/22
  */
 public class StockDaoImpl implements StockDao{
 
@@ -38,7 +36,7 @@ public class StockDaoImpl implements StockDao{
             }
         } catch (SQLException e) {
             logger.warn("添加库存记录发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -62,7 +60,7 @@ public class StockDaoImpl implements StockDao{
             }
         } catch (SQLException e) {
             logger.warn("添加库存备注发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
         }
@@ -85,7 +83,7 @@ public class StockDaoImpl implements StockDao{
             }
         } catch (SQLException e) {
             logger.warn("更新库存记录发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
         }
@@ -108,7 +106,7 @@ public class StockDaoImpl implements StockDao{
             }
         } catch (SQLException e) {
             logger.warn("更新库存记录发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
         }
@@ -134,7 +132,7 @@ public class StockDaoImpl implements StockDao{
             logger.info("查询所有药品库存信息");
         } catch (SQLException e) {
             logger.warn("查询所有库存药品信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -162,7 +160,7 @@ public class StockDaoImpl implements StockDao{
             logger.info("查询编号为" + mid + "药品的库存信息");
         } catch (SQLException e) {
             logger.warn("查询编号为" + mid + "药品的库存信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -185,7 +183,7 @@ public class StockDaoImpl implements StockDao{
             stockQuantity = resultSet.getInt(1);
         } catch (SQLException e) {
             logger.warn("查询编号为" + mid + "药品的库存数量发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -210,7 +208,7 @@ public class StockDaoImpl implements StockDao{
             }
         } catch (SQLException e) {
             logger.warn("删除编号为" + mid + "的药品库存记录发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);

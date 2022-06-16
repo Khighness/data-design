@@ -3,9 +3,9 @@ package com.kag.common;
 import java.awt.*;
 
 /**
- * @Description: 颜色工具类
- * @Author: 陈子康
- * @Date: 2020/4/30
+ * @apiNote 颜色工具类
+ * @author KHighness
+ * @since 2020/4/30
  */
 public class ColorUtil {
 

@@ -7,9 +7,9 @@ import com.kag.dao.PurchaseMainDaoImpl;
 import com.kag.entity.PurchaseMain;
 
 /**
- * @Description: 进货服务层
- * @Author: 陈子康
- * @Date: 2020/5/24
+ * @apiNote 进货服务层
+ * @author KHighness
+ * @since 2020/5/24
  */
 public class PurchaseMainService {
 

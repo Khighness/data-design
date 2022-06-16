@@ -11,9 +11,9 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 
 /**
- * @Description: 内部添加客户界面
- * @Author: 陈子康
- * @Date: 2020/5/25
+ * @apiNote 内部添加客户界面
+ * @author KHighness
+ * @since 2020/5/25
  */
 public class InnerAddClientFrame extends JInternalFrame {
 

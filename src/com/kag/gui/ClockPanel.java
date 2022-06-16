@@ -10,9 +10,9 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 /**
- * @Description: 时间画布
- * @Author: 陈子康
- * @Date: 2020/5/20
+ * @apiNote 时间画布
+ * @author KHighness
+ * @since 2020/5/20
  */
 public class ClockPanel extends JPanel{
 

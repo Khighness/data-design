@@ -4,9 +4,9 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * @Description: 进货（主表）实体层
- * @Author: 陈子康
- * @Date: 2020/5/19
+ * @apiNote 进货（主表）实体层
+ * @author KHighness
+ * @since 2020/5/19
  */
 public class PurchaseMain {
 

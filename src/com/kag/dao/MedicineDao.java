@@ -5,9 +5,9 @@ import com.kag.entity.Medicine;
 import java.util.List;
 
 /**
- * @Description: 药品持久层
- * @Author: 陈子康
- * @Date: 2020/5/19
+ * @apiNote 药品持久层
+ * @author KHighness
+ * @since 2020/5/19
  */
 public interface MedicineDao {
 

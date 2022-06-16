@@ -1,8 +1,7 @@
 package com.kag.service;
 
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 import com.kag.common.MysqlUtil;
-import com.kag.entity.Staff;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -11,16 +10,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * @Description: 登录服务层
- * @Author: 陈子康
- * @Date: 2020/5/17
+ * @apiNote 登录服务层
+ * @author KHighness
+ * @since 2020/5/17
  */
 public class LoginService {
 
     private Logger logger = Logger.getLogger(LoginService.class);
 
     /**
-     * @Description: 管理员登录检查
+     * @apiNote 管理员登录检查
      * @param username
      * @param password
      * @return
@@ -47,7 +46,7 @@ public class LoginService {
             }
         } catch (SQLException e) {
             logger.warn("管理员" + username + "登陆，发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -57,7 +56,7 @@ public class LoginService {
     }
 
     /**
-     * @Description: 职员登陆检查
+     * @apiNote 职员登陆检查
      * @param staffName
      * @param password
      * @return
@@ -87,7 +86,7 @@ public class LoginService {
             }
         } catch (SQLException e) {
             logger.warn("职员" + staffName + "登录，发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);

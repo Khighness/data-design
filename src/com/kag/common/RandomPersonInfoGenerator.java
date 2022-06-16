@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Description: 随机个人信息生成工具类
- * @Author: 陈子康
- * @Date: 2020/5/8
+ * @apiNote 随机个人信息生成工具类
+ * @author KHighness
+ * @since 2020/5/8
  */
 public class RandomPersonInfoGenerator {
 
@@ -23,7 +23,7 @@ public class RandomPersonInfoGenerator {
     }
 
     /**
-     * @Description: 随机生成邮箱
+     * @apiNote 随机生成邮箱
      * @param lMin 最小长度
      * @param lMax 最大长度
      * @return String
@@ -40,7 +40,7 @@ public class RandomPersonInfoGenerator {
     }
 
     /**
-     * @Description: 随机生成电话号码
+     * @apiNote 随机生成电话号码
      * @Return String
      */
     private static String[] telFirst = "134,135,136,137,138,139,150,151,152,157,158,159,130,131,132,155,156,133,153".split(",");
@@ -53,7 +53,7 @@ public class RandomPersonInfoGenerator {
     }
 
     /**
-     * @Description: 随机生成中文姓名
+     * @apiNote 随机生成中文姓名
      * @return String
      */
     private static String name_sex = "";
@@ -82,7 +82,7 @@ public class RandomPersonInfoGenerator {
     }
 
     /**
-     * @Description: 随机生成地址
+     * @apiNote 随机生成地址
      * @return String
      */
     public static String getAddress() {

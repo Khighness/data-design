@@ -6,9 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @Description: 关于对话框
- * @Author: 陈子康
- * @Date: 2020/5/20
+ * @apiNote 关于对话框
+ * @author KHighness
+ * @since 2020/5/20
  */
 public class AboutDialogFrame extends JDialog {
     private ImageIcon AboutIcon = new ImageIcon("img/AboutDetail.png");

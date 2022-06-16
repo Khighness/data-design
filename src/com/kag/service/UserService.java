@@ -8,9 +8,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @Description: 用户服务层
- * @Author: 陈子康
- * @Date: 2020/5/2
+ * @apiNote 用户服务层
+ * @author KHighness
+ * @since 2020/5/2
  */
 public class UserService {
 

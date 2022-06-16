@@ -2,7 +2,6 @@ package com.kag.gui;
 
 import com.kag.common.CheckUtil;
 import com.kag.common.ColorUtil;
-import com.kag.common.ExceptUtil;
 import com.kag.entity.User;
 import com.kag.service.UserService;
 
@@ -10,12 +9,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
 
 /**
- * @Description: 内部更改个人信息界面
- * @Author: 陈子康
- * @Date: 2020/5/27
+ * @apiNote 内部更改个人信息界面
+ * @author KHighness
+ * @since 2020/5/27
  */
 public class InnerUpdateAdminInfoFrame extends JInternalFrame{
 

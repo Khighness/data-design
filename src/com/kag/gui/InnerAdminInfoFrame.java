@@ -1,20 +1,17 @@
 package com.kag.gui;
 
-import com.kag.entity.Staff;
 import com.kag.entity.User;
-import com.kag.service.StaffService;
 import com.kag.service.UserService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
 
 /**
- * @Description: 内部我的信息界面
- * @Author: 陈子康
- * @Date: 2020/5/30
+ * @apiNote 内部我的信息界面
+ * @author KHighness
+ * @since 2020/5/30
  */
 public class InnerAdminInfoFrame extends JInternalFrame {
 

@@ -3,9 +3,9 @@ package com.kag.entity;
 import java.util.Objects;
 
 /**
- * @Description: 生产厂家实体层
- * @Author: 陈子康
- * @Date: 2020/5/19
+ * @apiNote 生产厂家实体层
+ * @author KHighness
+ * @since 2020/5/19
  */
 public class Factory {
 

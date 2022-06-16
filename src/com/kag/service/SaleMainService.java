@@ -5,9 +5,9 @@ import com.kag.dao.SaleMainDaoImpl;
 import com.kag.entity.SaleMain;
 
 /**
- * @Description: 批发服务层
- * @Author: 陈子康
- * @Date: 2020/5/24
+ * @apiNote 批发服务层
+ * @author KHighness
+ * @since 2020/5/24
  */
 public class SaleMainService {
 

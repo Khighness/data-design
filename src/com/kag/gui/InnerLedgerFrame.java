@@ -13,9 +13,9 @@ import java.awt.*;
 import java.util.List;
 
 /**
- * @Description: 内部账本查询界面
- * @Author: 陈子康
- * @Date: 2020/5/30
+ * @apiNote 内部账本查询界面
+ * @author KHighness
+ * @since 2020/5/30
  */
 public class InnerLedgerFrame extends JInternalFrame {
 

@@ -12,9 +12,9 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 
 /**
- * @Description: 内部零售界面
- * @Author: 陈子康
- * @Date: 2020/5/25
+ * @apiNote 内部零售界面
+ * @author KHighness
+ * @since 2020/5/25
  */
 public class InnerRetailFrame extends JInternalFrame {
 
@@ -119,7 +119,7 @@ public class InnerRetailFrame extends JInternalFrame {
     }
 
     /**
-     * @Description: 零售(Retail)
+     * @apiNote 零售(Retail)
      * 1) 添加零售记录
      * 2) 添加账本记录
      * 3) 更新药品库存

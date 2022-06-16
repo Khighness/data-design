@@ -7,9 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @Description: 内部库存界面
- * @Author: 陈子康
- * @Date: 2020/5/26
+ * @apiNote 内部库存界面
+ * @author KHighness
+ * @since 2020/5/26
  */
 public class InnerStockFrame {
 

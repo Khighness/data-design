@@ -1,18 +1,17 @@
 package com.kag.common;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
- * @Description: 时间工具类
- * @Author: 陈子康
- * @Date: 2020/4/30
+ * @apiNote 时间工具类
+ * @author KHighness
+ * @since 2020/4/30
  */
 public class TimeUtil {
 
     /**
-     * @Description: 获取当前时间
+     * @apiNote 获取当前时间
      * @return String 时间
      */
     public static String CurrentTime() {
@@ -21,7 +20,7 @@ public class TimeUtil {
     }
 
     /**
-     * @Description: 格式化日期
+     * @apiNote 格式化日期
      * @param date
      * @return String
      */
@@ -31,7 +30,7 @@ public class TimeUtil {
     }
 
     /**
-     * @Description: 时间格式转化
+     * @apiNote 时间格式转化
      * @param date  java.util
      * @return date java.sql
      */
@@ -40,7 +39,7 @@ public class TimeUtil {
     }
 
     /**
-     * @Description: 时间格式转化
+     * @apiNote 时间格式转化
      * @param date  java.sql
      * @return date java.util
      */

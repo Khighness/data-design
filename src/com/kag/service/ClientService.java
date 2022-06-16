@@ -5,9 +5,9 @@ import com.kag.dao.ClientDaoImpl;
 import com.kag.entity.Client;
 
 /**
- * @Description: 客户服务层
- * @Author: 陈子康
- * @Date: 2020/5/24
+ * @apiNote 客户服务层
+ * @author KHighness
+ * @since 2020/5/24
  */
 public class ClientService {
 

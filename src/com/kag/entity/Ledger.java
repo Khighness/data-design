@@ -3,9 +3,9 @@ package com.kag.entity;
 import java.util.Objects;
 
 /**
- * @Description: 账本实体层
- * @Author: 陈子康
- * @Date: 2020/5/19
+ * @apiNote 账本实体层
+ * @author KHighness
+ * @since 2020/5/19
  */
 public class Ledger {
 

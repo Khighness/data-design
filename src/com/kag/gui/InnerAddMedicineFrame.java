@@ -10,9 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @Description: 内部添加药品界面
- * @Author: 陈子康
- * @Date: 2020/5/22
+ * @apiNote 内部添加药品界面
+ * @author KHighness
+ * @since 2020/5/22
  */
 public class InnerAddMedicineFrame extends JInternalFrame {
 

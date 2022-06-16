@@ -14,9 +14,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @Description: 内部添加厂家界面
- * @Author: 陈子康
- * @Date: 2020/5/22
+ * @apiNote 内部添加厂家界面
+ * @author KHighness
+ * @since 2020/5/22
  */
 public class InnerAddFactoryFrame extends JInternalFrame {
 
@@ -53,7 +53,7 @@ public class InnerAddFactoryFrame extends JInternalFrame {
     }
 
     /**
-     * @Description: 设置窗口背景
+     * @apiNote 设置窗口背景
      */
     private void initFrameBackground() {
         ContentPanel.setOpaque(false);
@@ -64,7 +64,7 @@ public class InnerAddFactoryFrame extends JInternalFrame {
     }
 
     /**
-     * @Description: 设置窗口属性
+     * @apiNote 设置窗口属性
      */
     private void initFrameProperty() {
         setBounds(300, 50, BackIcon.getIconWidth(), BackIcon.getIconHeight());
@@ -78,7 +78,7 @@ public class InnerAddFactoryFrame extends JInternalFrame {
     }
 
     /**
-     * @Description: 设置窗口组件
+     * @apiNote 设置窗口组件
      */
     private void initFrameComponent() {
         add(Label_Fid);

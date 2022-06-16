@@ -1,8 +1,7 @@
 package com.kag.dao;
 
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 import com.kag.common.MysqlUtil;
-import com.kag.common.TimeUtil;
 import com.kag.entity.PurchaseDetail;
 import org.apache.log4j.Logger;
 
@@ -11,9 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * @Description: 进货（附表）持久层
- * @Author: 陈子康
- * @Date: 2020/5/22
+ * @apiNote 进货（附表）持久层
+ * @author KHighness
+ * @since 2020/5/22
  */
 public class PurchaseDetailDaoImpl implements PurchaseDetailDao {
 
@@ -39,7 +38,7 @@ public class PurchaseDetailDaoImpl implements PurchaseDetailDao {
             }
         } catch (SQLException e) {
             logger.warn("添加进购子记录发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);

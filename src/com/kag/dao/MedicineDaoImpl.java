@@ -1,6 +1,6 @@
 package com.kag.dao;
 
-import com.kag.common.ExceptUtil;
+import com.kag.common.ExceptionUtil;
 import com.kag.common.MysqlUtil;
 import com.kag.common.TimeUtil;
 import com.kag.entity.Medicine;
@@ -12,9 +12,9 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @Description: 药品持久层
- * @Author: 陈子康
- * @Date: 2020/5/22
+ * @apiNote 药品持久层
+ * @author KHighness
+ * @since 2020/5/22
  */
 public class MedicineDaoImpl implements MedicineDao {
 
@@ -39,7 +39,7 @@ public class MedicineDaoImpl implements MedicineDao {
             }
         } catch (SQLException e) {
             logger.warn("添加药品主要信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -71,7 +71,7 @@ public class MedicineDaoImpl implements MedicineDao {
             }
         } catch (SQLException e) {
             logger.warn("添加药品详细信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -108,7 +108,7 @@ public class MedicineDaoImpl implements MedicineDao {
             }
         } catch (SQLException e) {
             logger.warn("添加完全所有信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -158,7 +158,7 @@ public class MedicineDaoImpl implements MedicineDao {
             }
         } catch (SQLException e) {
             logger.warn("更新药品信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);
@@ -197,7 +197,7 @@ public class MedicineDaoImpl implements MedicineDao {
             }
         } catch (SQLException e) {
             logger.warn("查询所有信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -241,7 +241,7 @@ public class MedicineDaoImpl implements MedicineDao {
             logger.info("查询编号为" + mid + "的药品");
         } catch (SQLException e) {
             logger.warn("查询编号为" + mid + "的药品发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -285,7 +285,7 @@ public class MedicineDaoImpl implements MedicineDao {
             logger.info("查询名称为" + medicineName + "的药品信息");
         } catch (SQLException e) {
             logger.warn("查询名称为" + medicineName + "的药品信息发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -309,7 +309,7 @@ public class MedicineDaoImpl implements MedicineDao {
             logger.info("查询编号为" + mid + "的药品零售价格");
         } catch (SQLException e) {
             logger.warn("查询编号为" + mid + "的药品零售价格发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -332,7 +332,7 @@ public class MedicineDaoImpl implements MedicineDao {
             logger.info("查询编号为" + mid + "的药品批发价格");
         } catch (SQLException e) {
             logger.warn("查询编号为" + mid + "的药品批发价格发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closeStatement(statement);
@@ -356,7 +356,7 @@ public class MedicineDaoImpl implements MedicineDao {
             }
         } catch (SQLException e) {
             logger.warn("删除编号为" + mid + "的药品发生异常");
-            ExceptUtil.printException(e);
+            ExceptionUtil.printException(e);
         } finally {
             MysqlUtil.closeConnection(connection);
             MysqlUtil.closePreparedStatement(preparedStatement);

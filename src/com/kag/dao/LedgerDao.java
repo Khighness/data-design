@@ -6,9 +6,9 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @Description: 账本持久层
- * @Author: 陈子康
- * @Date: 2020/5/6
+ * @apiNote 账本持久层
+ * @author KHighness
+ * @since 2020/5/6
  */
 public interface LedgerDao {
 

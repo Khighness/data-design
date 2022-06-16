@@ -11,9 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @Description: 内部客户查询界面
- * @Author: 陈子康
- * @Date: 2020/5/29
+ * @apiNote 内部客户查询界面
+ * @author KHighness
+ * @since 2020/5/29
  */
 public class InnerSearchClientFrame extends JInternalFrame{
 

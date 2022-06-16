@@ -11,9 +11,9 @@ import java.awt.peer.FontPeer;
 import java.util.List;
 
 /**
- * @Description: 内部库存查询界面(查询所有)
- * @Author: 陈子康
- * @Date: 2020/5/26
+ * @apiNote 内部库存查询界面(查询所有)
+ * @author KHighness
+ * @since 2020/5/26
  */
 public class InnerSearchAllStockFrame extends JInternalFrame {
 
